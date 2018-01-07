@@ -27,3 +27,6 @@
     <td><a href="https://github.com/FlorianFe/PaperCubes/releases/download/v1.0.0-beta/PaperCubes.dmg">Download</a></td>
   </tr>
 </table>
+
+## Note
+The Texture Pack <i>Pixel Perfection</i> ([Link](http://www.minecraftforum.net/forums/mapping-and-modding-java-edition/resource-packs/1242533-pixel-perfection-now-with-polar-bears-1-11)) which is used for the Screenshots was made by <i>XSSheep</i>.
