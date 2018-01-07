@@ -30,4 +30,4 @@
 </table>
 
 ## Note
-The Texture Pack <i>Pixel Perfection</i> ([Link](http://www.minecraftforum.net/forums/mapping-and-modding-java-edition/resource-packs/1242533-pixel-perfection-now-with-polar-bears-1-11)) which is used for the Screenshots was made by <i>XSSheep</i>.
+The Texture Pack <i>Pixel Perfection</i> ([Link](http://www.minecraftforum.net/forums/mapping-and-modding-java-edition/resource-packs/1242533-pixel-perfection-now-with-polar-bears-1-11)) which is used for the Screenshots was made by <i>Hugh "XSSheep" Rutland</i>.
