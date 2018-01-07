@@ -2,7 +2,7 @@
 <p align="center">
   <img alt="Icon" src="https://florianfe.github.io/screenshots/PaperCubes/icon.png">
   <h1 align="center">PaperCubes</h1>
-  <p align="center">🏡🖨 A desktop app which converts your minecraft <a href="http://www.minecraft-schematics.com/worldedit/tutorial/">.schematic</a> you got from <a href="https://github.com/sk89q/WorldEdit">worldedit</a> files into blueprints for papercraft</p>
+  <p align="center">🏡🖨 A desktop app which converts your minecraft <a href="http://www.minecraft-schematics.com/worldedit/tutorial/">.schematic</a> files you got from <a href="https://github.com/sk89q/WorldEdit">worldedit</a> into blueprints for papercraft</p>
 </p>
 
 <br>
