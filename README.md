@@ -27,6 +27,11 @@
     <td>1.0.0 BETA</td>
     <td><a href="https://github.com/FlorianFe/PaperCubes/releases/download/v1.0.0-beta/PaperCubes.dmg">Download</a></td>
   </tr>
+  <tr>
+    <td>Windows</td>
+    <td>1.0.0 BETA</td>
+    <td>coming soon!</td>
+  </tr>
 </table>
 
 ## Note
