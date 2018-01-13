@@ -17,7 +17,7 @@
 7. 🏝 Drop schematic file and texturepack in it
 8. 🌟 Let the Program do its magic
 9. 🖨 Print out the blueprints
-10. 🏘 Build amazing minecraft builds in real!
+10. 🏘 Make amazing minecraft builds in real!
 
 ## 🖼 Preview
 
