@@ -11,7 +11,7 @@
 1. 🏡 You need an installed Minecraft Version
 2. 🏗 You need to install the Minecraft mod Worldedit
 3. ✨ Start Minecraft and build something amazing 
-4. 💾 *//Copy* what you built and *//Schematic save* it
+4. 💾 *//Copy* what you built and *//schematic save* it
 5. 🌴 Download a Texturepack
 6. 💿 Start this desktop app
 7. 🏝 Drop schematic file and texturepack in it
