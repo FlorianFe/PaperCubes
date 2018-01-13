@@ -7,6 +7,18 @@
 
 <br>
 
+## 🚀 How to use?
+1. 🏡 You need an installed Minecraft Version
+2. 🏗 You need to install the Minecraft mod Worldedit
+3. ✨ Start Minecraft and build something amazing 
+4. 💾 *//Copy* what you built and *//Schematic save* it
+5. 🌴 Download a Texturepack
+6. 💿 Start this desktop app
+7. 🏝 Drop schematic file and texturepack in it
+8. 🌟 Let the Program do its magic
+9. 🖨 Print out the blueprints
+10. 🏘 Build amazing minecraft builds in real!
+
 ## 🖼 Preview
 
 ![screenshot 1](https://florianfe.github.io/screenshots/PaperCubes/screenshot-1.png)
