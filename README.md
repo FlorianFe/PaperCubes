@@ -24,10 +24,12 @@
 
 ## 🖼 Preview
 
+![minecraft screenshot](https://florianfe.github.io/screenshots/PaperCubes/minecraft-screenshot.png)
 ![screenshot 1](https://florianfe.github.io/screenshots/PaperCubes/screenshot-1.png)
 ![screenshot 2](https://florianfe.github.io/screenshots/PaperCubes/screenshot-2.png)
 ![screenshot 3](https://florianfe.github.io/screenshots/PaperCubes/screenshot-3.png)
 ![screenshot 4](https://florianfe.github.io/screenshots/PaperCubes/screenshot-4.png)
+![result screenshot](https://florianfe.github.io/screenshots/PaperCubes/result-screenshot.jpeg)
 
 ## 💾 Download
 
