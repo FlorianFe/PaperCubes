@@ -25,7 +25,7 @@
 10. 🏘 Make amazing minecraft builds in real!
 
 ## 📝 Source Code
-In order to use this source code you need to have Node.js, Git and Bower installed globally. After that you have to follow the steps below. <b>Only available for MacOS at the moment.</b>
+In order to use this source code you need to have Node.js, Git and Bower installed globally. After that you have to follow the steps below (<b>Only available for MacOS at the moment</b>).
 
 ```bash
 # Clone this repository
