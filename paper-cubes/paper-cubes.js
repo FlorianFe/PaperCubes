@@ -1,9 +1,9 @@
 
-class McOrigami extends Polymer.Element
+class PaperCubes extends Polymer.Element
 {
   static get is()
   {
-    return 'mc-origami';
+    return 'paper-cubes';
   }
 
   static get properties()
@@ -39,4 +39,4 @@ class McOrigami extends Polymer.Element
   }
 }
 
-customElements.define(McOrigami.is, McOrigami);
+customElements.define(PaperCubes.is, PaperCubes);
