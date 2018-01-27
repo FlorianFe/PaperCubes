@@ -71,5 +71,5 @@ npm run-script dist
 </table>
 
 ## 🗒 Note
-- This Project was inspired by [Orthogami](https://github.com/mikolalysenko/orthogami) made by mikolalysenko
+- This Project was inspired by [Orthogami](https://github.com/mikolalysenko/orthogami) (made by mikolalysenko).
 - The Texture Pack <i>Pixel Perfection</i> ([Link](http://www.minecraftforum.net/forums/mapping-and-modding-java-edition/resource-packs/1242533-pixel-perfection-now-with-polar-bears-1-11)) which is used for the Screenshots was made by <i>Hugh "XSSheep" Rutland</i>.
