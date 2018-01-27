@@ -4,6 +4,8 @@
   <h1 align="center">🏡🖨 PaperCubes</h1>
   <p align="center">A desktop app which converts your minecraft <a href="http://www.minecraft-schematics.com/worldedit/tutorial/">.schematic</a> files <br>you got from <a href="https://github.com/sk89q/WorldEdit">worldedit</a> into blueprints for papercraft.
   <br><br>
+  PaperCubes is still in BETA. Errors may occur. <br> When you found one, please open an issue for me. 
+  <br><br>
   Please just use .schematic files with version 1.9 or higher
   </p>
 </p>
@@ -21,6 +23,24 @@
 8. 🌟 Let the Program do its magic
 9. 🖨 Print out the blueprints
 10. 🏘 Make amazing minecraft builds in real!
+
+## Source Code
+In order to use this source code you need to have Node.js, Git and Bower installed globally. After that you have to follow the steps below. <b>Only available for MacOS at the moment.</b>
+
+```bash
+# Clone this repository
+git clone https://github.com/florianfe/PaperCubes
+# Go into the repository
+cd Elements
+# Install npm dependencies
+npm install
+# Install bower dependencies
+bower install
+# Run the app in test mode
+npm start
+# build application for release
+npm run-script dist
+```
 
 ## 🖼 Preview
 
@@ -51,4 +71,5 @@
 </table>
 
 ## 🗒 Note
-The Texture Pack <i>Pixel Perfection</i> ([Link](http://www.minecraftforum.net/forums/mapping-and-modding-java-edition/resource-packs/1242533-pixel-perfection-now-with-polar-bears-1-11)) which is used for the Screenshots was made by <i>Hugh "XSSheep" Rutland</i>.
+- This Project was inspired by [Orthogami](https://github.com/mikolalysenko/orthogami) made by mikolalysenko
+- The Texture Pack <i>Pixel Perfection</i> ([Link](http://www.minecraftforum.net/forums/mapping-and-modding-java-edition/resource-packs/1242533-pixel-perfection-now-with-polar-bears-1-11)) which is used for the Screenshots was made by <i>Hugh "XSSheep" Rutland</i>.
