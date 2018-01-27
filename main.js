@@ -125,7 +125,7 @@ app.on('ready', () =>
 
   ipcMain.on("startSchematicToOrigamiCalculation", (event, data) =>
   {
-    const minecraft = require('./main-process/schematicToOrigami/m2o/binding');
+    const m2o = require('./main-process/schematicToOrigami/m2o/binding');
     const blockIdList = require('./main-process/schematicToOrigami/block_id_list.json');
     const Handlebars = require('handlebars');
     const Schematic = require('mc-schematic')('1.9');
@@ -220,7 +220,7 @@ app.on('ready', () =>
 
           console.log(voxelData, voxelData.length, dimension);
 
-          let context = minecraft.orthogami(
+          let context = m2o.orthogami(
             data.boundsX, data.boundsY, data.scale,
             voxelData, dimension, dimension, dimension
           );
