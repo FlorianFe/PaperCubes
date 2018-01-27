@@ -1,0 +1,41 @@
+<!-- Imports Polymer -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<!-- Imports Dependencies -->
+<link rel="import" href="origami-blueprint/origami-blueprint.html">
+<link rel="import" href="origami-blueprint/origami-blueprint.html">
+
+<!-- Defines element markup -->
+<dom-module id="result-page">
+
+  <template>
+    <style>
+
+    :host
+    {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    </style>
+
+    <origami-blueprint
+      id="origami-blueprint"
+      schematic-data="[[minecraftSchematicData]]"
+      texture-pack-upload-path="[[texturePackUploadPath]]"
+      bounds-x="[[pageWidth]]"
+      bounds-y="[[pageHeight]]"
+      scale="[[tileSize]]"
+      line-width="[[lineWidth]]"
+
+      tab-color="[[tabColor]]"
+      stroke-color="[[strokeColor]]"
+      concave-line-color="[[concaveLineColor]]"
+      convex-line-color="[[convexLineColor]]"
+    ></origami-blueprint>
+  </template>
+
+  <!-- Loads JavaScript -->
+  <script src="result-page.js"></script>
+</dom-module>

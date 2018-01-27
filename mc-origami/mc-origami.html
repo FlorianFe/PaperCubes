@@ -1,0 +1,76 @@
+<!-- Imports Polymer -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<!-- Imports Dependencies -->
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+
+<link rel="import" href="configuration-page/configuration-page.html">
+<link rel="import" href="processing-page/processing-page.html">
+<link rel="import" href="result-page/result-page.html">
+
+<!-- Defines element markup -->
+<dom-module id="mc-origami">
+
+  <template>
+
+    <custom-style>
+      <style>
+
+      :host
+      {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      iron-pages
+      {
+        height: 100%;
+      }
+
+      </style>
+    </custom-style>
+
+    <iron-pages selected="[[selectedPage]]">
+      <configuration-page
+        id="configuration-page"
+        minecraft-schematic-data="{{minecraftSchematicData}}"
+        texture-pack-upload-path="{{texturePackUploadPath}}"
+        page-width="{{pageWidth}}"
+        page-height="{{pageHeight}}"
+        tile-size="{{tileSize}}"
+        line-width="{{lineWidth}}"
+
+        tab-color="{{tabColor}}"
+        stroke-color="{{strokeColor}}"
+        concave-line-color="{{concaveLineColor}}"
+        convex-line-color="{{convexLineColor}}"
+      ></configuration-page>
+
+      <processing-page
+        id="processing-page"
+      ></processing-page>
+
+      <result-page
+        id="result-page"
+        minecraft-schematic-data="[[minecraftSchematicData]]"
+        texture-pack-upload-path="[[texturePackUploadPath]]"
+        page-width="[[pageWidth]]"
+        page-height="[[pageHeight]]"
+        tile-size="[[tileSize]]"
+        line-width="[[lineWidth]]"
+
+        tab-color="[[tabColor]]"
+        stroke-color="[[strokeColor]]"
+        concave-line-color="[[concaveLineColor]]"
+        convex-line-color="[[convexLineColor]]"
+      ></result-page>
+    </iron-pages>
+
+    <paper-toast id="exception-toast" text=""></paper-toast>
+
+  </template>
+
+  <!-- Loads JavaScript -->
+  <script src="mc-origami.js"></script>
+</dom-module>

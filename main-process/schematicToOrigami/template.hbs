@@ -1,0 +1,86 @@
+
+
+
+{{#each pages}}
+<svg width="100%" viewBox="0 0 {{../pageWidth}} {{../pageHeight}}">
+  {{#each tiles}}
+    <path
+      fill="url(#{{texture type metaType normal}})"
+      d="M {{mul x ../../size}} {{mul y ../../size}} L {{mul x ../../size}} {{add (mul y ../../size) ../../size}} L {{add (mul x ../../size) ../../size}} {{add (mul y ../../size) ../../size}} L {{add (mul x ../../size) ../../size}} {{mul y ../../size}}"
+    />
+  {{/each}}
+
+  {{#each links}}
+    <g
+      transform="translate({{mul (add x 0.5) ../../size}}, {{mul (add y 0.5) ../../size}}) rotate({{rotation orientation}})"
+      fill="{{../../tabColor}}"
+      stroke-width="{{../../strokeWidth}}"
+    >
+      {{#if opened}}
+      <path
+        stroke="{{../../strokeColor}}"
+        stroke-dasharray="{{mul 2 ../../strokeWidth}},{{mul 2 ../../strokeWidth}}"
+        d="M {{mul -0.5 ../../size}} {{mul -0.5 ../../size}} L {{mul -0.4 ../../size}} {{mul -0.5 ../../size}} L {{mul -0.3 ../../size}} {{mul -0.3 ../../size}} L {{mul 0.3 ../../size}} {{mul -0.3 ../../size}} L {{mul 0.4 ../../size}} {{mul -0.5 ../../size}} L {{mul 0.5 ../../size}} {{mul -0.5 ../../size}}"
+      />
+
+      <path
+        fill="white"
+        stroke="{{../../strokeColor}}"
+        stroke-dasharray="{{mul 2 ../../strokeWidth}},{{mul 2 ../../strokeWidth}}"
+        d="M {{mul 0.25 ../../size}} {{mul -0.5 ../../size}} L {{mul 0.2 ../../size}} {{mul -0.45 ../../size}} L {{mul -0.2 ../../size}} {{mul -0.45 ../../size}} L {{mul -0.25 ../../size}} {{mul -0.5 ../../size}} Z"
+      />
+
+      <text
+        transform="rotate(180)"
+        font-size="{{mul 10 (div ../../size 128) }}"
+        fill="black"
+        font-family="Verdana"
+        text-anchor="middle"
+        alignment-baseline="baseline"
+        x="0"
+        y="{{mul 0.4 ../../size}}"
+      >
+      {{else}}
+      <path
+        stroke="{{../../strokeColor}}"
+        stroke-dasharray="{{mul 2 ../../strokeWidth}},{{mul 2 ../../strokeWidth}}"
+        d="M {{mul -0.5 ../../size}} {{mul -0.5 ../../size}} L {{mul -0.25 ../../size}} {{mul -0.5 ../../size}} L {{mul -0.2 ../../size}} {{mul -0.2 ../../size}} L {{mul 0.2 ../../size}} {{mul -0.2 ../../size}} L {{mul 0.25 ../../size}} {{mul -0.5 ../../size}} L {{mul 0.5 ../../size}} {{mul -0.5 ../../size}}"
+      />
+
+      <text
+        transform="rotate(180)"
+        font-size="{{mul 10 (div ../../size 128) }}"
+        fill="black"
+        font-family="Verdana"
+        text-anchor="middle"
+        alignment-baseline="baseline"
+        x="0"
+        y="{{mul 0.35 ../../size}}"
+      >
+      {{/if}}
+
+        {{ index }}
+      </text>
+    </g>
+
+    {{/each}}
+</svg>
+  {{#unless @last}}
+  <hr class="page-start">
+  {{/unless}}
+{{/each}}
+
+<svg
+  width="0" height="0"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs id="defs">
+    {{#each textures}}
+    <pattern id="{{this}}" x="0" y="0" width="1" height="1">
+      <image
+        x="0" y="0" width="{{../size}}" height="{{../size}}"
+        xlink:href="{{../texturePath}}/{{this}}.png"
+      ></image>
+    </pattern>
+    {{/each}}
+  </defs>
+</svg>

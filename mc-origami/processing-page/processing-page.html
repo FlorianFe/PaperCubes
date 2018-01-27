@@ -1,0 +1,73 @@
+<!-- Imports Polymer -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<!-- Imports Dependencies -->
+
+<!-- Defines element markup -->
+<dom-module id="processing-page">
+
+  <template>
+    <style>
+
+    rect
+    {
+      fill: var(--primary-color);
+      transform-origin: 50% 50%;
+      animation: rotation infinite 3s linear;
+    }
+
+    #rect-1
+    {
+      animation-delay: 0s;
+    }
+
+    #rect-2
+    {
+      animation-delay: 1s;
+    }
+
+    #rect-3
+    {
+      animation-delay: 2s;
+    }
+
+    @keyframes rotation
+    {
+      0%
+      {
+        transform: rotate(0);
+      }
+      33%
+      {
+        transform: rotate(180deg);
+      }
+      100%
+      {
+        transform: rotate(180deg);
+      }
+    }
+
+    </style>
+
+    <svg width="100%" height="100%" viewBox="0 0 100 100">
+      <rect id="rect-1" x="45" y="50" width="2" height="2"></rect>
+      <rect id="rect-2" x="50" y="50" width="2" height="2"></rect>
+      <rect id="rect-3" x="55" y="50" width="2" height="2"></rect>
+
+      <text
+        x="51" y="57"
+        font-size="2"
+        fill="#aaa"
+        font-family="Verdana"
+        text-anchor="middle"
+        alignment-baseline="baseline"
+      >
+      Loading
+      </text>
+    </svg>
+
+  </template>
+
+  <!-- Loads JavaScript -->
+  <script src="processing-page.js"></script>
+</dom-module>

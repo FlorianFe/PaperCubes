@@ -1,0 +1,32 @@
+{
+  "name": "PaperCubes",
+  "version": "1.1.0",
+  "description": "Electron app for building blueprints for minecraft origami",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "build --dir",
+    "dist": "build"
+  },
+  "build": {
+    "appId": "de.florianfe.papercubes",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "icon@2x"
+    },
+    "win": {
+      "icon": "build/icon"
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "handlebars": "^4.0.11",
+    "mc-schematic": "^1.0.2",
+    "unzip": "^0.1.11"
+  },
+  "devDependencies": {
+    "electron": "1.7.8",
+    "electron-builder": "^19.49.3"
+  }
+}

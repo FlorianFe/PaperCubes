@@ -1,0 +1,132 @@
+<!-- Imports Polymer -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<!-- Imports Dependencies -->
+<link rel="import" href="../../bower_components/vaadin-upload/vaadin-upload.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-swatch-picker/paper-swatch-picker.html">
+<link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
+
+<!-- Defines element markup -->
+<dom-module id="configuration-page">
+
+  <template>
+    <style>
+
+    :host
+    {
+      display: block;
+    }
+
+    paper-card
+    {
+      width: 100%;
+      padding: 15px;
+      margin: 15px;
+    }
+
+    .align-right
+    {
+      text-align: right;
+      margin: 10px;
+    }
+
+    .flex-container
+    {
+      display: flex;
+    }
+
+    .flex-item
+    {
+      flex: 1;
+    }
+
+    paper-card > div > div
+    {
+      padding: 15px;
+    }
+
+    paper-button
+    {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    paper-button[disabled]
+    {
+      background: #ddd;
+      color: black;
+    }
+
+    paper-toast
+    {
+      --paper-toast-background-color: #fff;
+      --paper-toast-color: #f00;
+    }
+
+    </style>
+
+    <vaadin-upload id="minecraft-schematic-file-upload" max-files="1">
+      <span slot="drop-label">Drop Minecraft Schematic here...</span>
+    </vaadin-upload>
+    <br>
+    <vaadin-upload id="minecraft-texture-pack-upload" max-files="1">
+      <span slot="drop-label">Drop Minecraft Texture Pack here...</span>
+    </vaadin-upload>
+    <br>
+    <div class="flex-container">
+      <paper-card class="flex-item">
+        <div class="flex-container">
+          <div class="flex-item">
+            <paper-input label="page width" value="{{pageWidth}}"></paper-input>
+          </div>
+          <div class="flex-item">
+            <paper-input label="page height" value="{{pageHeight}}"></paper-input>
+          </div>
+        </div>
+        <div class="flex-container">
+          <div class="flex-item">
+            <paper-input label="tile size" value="{{tileSize}}"></paper-input>
+          </div>
+          <div class="flex-item">
+            <paper-input label="line width" value="{{lineWidth}}"></paper-input>
+          </div>
+        </div>
+      </paper-card>
+      <paper-card class="flex-item">
+        <div class="flex-container">
+          <div class="flex-item">
+            <paper-swatch-picker
+              color="{{tabColor}}"
+            ></paper-swatch-picker>
+            tab color
+            <br>
+            <paper-swatch-picker
+              color="{{strokeColor}}"
+            ></paper-swatch-picker>
+            stroke color
+            <!--
+            <br>
+            <paper-swatch-picker
+              color="{{concaveLineColor}}"
+            ></paper-swatch-picker>
+            concarve line color
+            <br>
+            <paper-swatch-picker
+              color="{{convexLineColor}}"
+            ></paper-swatch-picker>
+            convex line color
+            -->
+          </div>
+        </div>
+      </paper-card>
+    </div>
+    <div class="align-right">
+      <paper-button disabled="[[isNotReadyForCalculation(condition1, condition2)]]" id="continue-button">continue</paper-button>
+    </div>
+  </template>
+
+  <!-- Loads JavaScript -->
+  <script src="configuration-page.js"></script>
+</dom-module>
