@@ -60,13 +60,13 @@ npm run-script dist
   </tr>
   <tr>
     <td>Mac</td>
-    <td>1.1.0 BETA</td>
-    <td><a href="https://github.com/FlorianFe/PaperCubes/releases/download/v1.1.0-beta/PaperCubes.dmg">Download</a></td>
+    <td>1.1.1 BETA</td>
+    <td><a href="https://github.com/FlorianFe/PaperCubes/releases/download/v1.1.1-beta/PaperCubes.dmg">Download</a></td>
   </tr>
   <tr>
     <td>Windows</td>
-    <td>1.1.0 BETA</td>
-    <td><a href="https://github.com/FlorianFe/PaperCubes/releases/download/v1.1.0-beta/PaperCubes.exe">Download</a></td>
+    <td>1.1.1 BETA</td>
+    <td><a href="https://github.com/FlorianFe/PaperCubes/releases/download/v1.1.1-beta/PaperCubes.exe">Download</a></td>
   </tr>
 </table>
 
