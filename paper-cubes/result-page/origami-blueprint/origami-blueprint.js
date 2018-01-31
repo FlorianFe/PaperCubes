@@ -11,7 +11,7 @@ class OrigamiBlueprint extends Polymer.Element
   static get properties()
   {
     return {
-      schematicData: String,
+      minecraftSchematicPath: String,
       texturePackUploadPath: String,
       texturePackPath: String,
       boundsX: Number,
@@ -99,7 +99,7 @@ class OrigamiBlueprint extends Polymer.Element
 
         ipcRenderer.send('startSchematicToOrigamiCalculation',
         {
-          schematicData: this.schematicData,
+          minecraftSchematicPath: this.minecraftSchematicPath,
           texturePackPath: this.texturePackPath,
           boundsX: this.boundsX,
           boundsY: this.boundsY,

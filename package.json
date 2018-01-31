@@ -22,7 +22,7 @@
   "license": "ISC",
   "dependencies": {
     "handlebars": "^4.0.11",
-    "mc-schematic": "^1.0.2",
+    "nbt": "^0.7.0",
     "unzip": "^0.1.11"
   },
   "devDependencies": {

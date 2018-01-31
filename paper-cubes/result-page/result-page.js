@@ -26,7 +26,7 @@ class ResultPage extends Polymer.Element
         type: Number
       },
 
-      minecraftSchematicData: String,
+      minecraftSchematicPath: String,
       minecraftTexturePackData: String,
 
       tabColor:

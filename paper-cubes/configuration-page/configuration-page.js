@@ -62,7 +62,7 @@ class ConfigurationPage extends Polymer.Element
         type: String,
         notify: true
       },
-      minecraftSchematicData:
+      minecraftSchematicPath:
       {
         type: String,
         notify: true
@@ -99,8 +99,7 @@ class ConfigurationPage extends Polymer.Element
 
     this.$["minecraft-schematic-file-upload"].addEventListener('upload-success', (data) =>
     {
-      const fs = require("fs");
-      this.minecraftSchematicData = fs.readFileSync(this.$["minecraft-schematic-file-upload"].files[0].path);
+      this.minecraftSchematicPath = this.$["minecraft-schematic-file-upload"].files[0].path;
       this.condition1 = true;
     });
 
