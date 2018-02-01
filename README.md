@@ -5,8 +5,6 @@
   <p align="center">A desktop app which converts your minecraft <a href="http://www.minecraft-schematics.com/worldedit/tutorial/">.schematic</a> files <br>you got from <a href="https://github.com/sk89q/WorldEdit">worldedit</a> into blueprints for papercraft.
   <br><br>
   PaperCubes is still in BETA. Errors may occur. <br> When you found one, please open an issue for me. 
-  <br><br>
-  Please just use .schematic files with version 1.9 or higher
   </p>
 </p>
 
