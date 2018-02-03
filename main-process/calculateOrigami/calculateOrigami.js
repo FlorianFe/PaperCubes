@@ -37,9 +37,9 @@ function calculateOrigami(data, onCalculationFinished)
             {
               let block = schema.blocks[x + y * schema.length * schema.width + z * schema.width];
 
-              if(blockIdList[block.id] != undefined)
+              if(blockIdList[charToUnsignedChar(block.id)] != undefined)
               {
-                voxelData[x + dimension * y + dimension * dimension * z] = { type: block.id, metaType: block.metaData };
+                voxelData[x + dimension * y + dimension * dimension * z] = { type: charToUnsignedChar(block.id), metaType: block.metaData };
               }
             }
           }
@@ -153,6 +153,12 @@ function parseSchematicFile(fileName, onCalculationFinished)
   });
 
   return schematic;
+}
+
+function charToUnsignedChar(char)
+{
+  if(char > 0) return char;
+  return (256 + char);
 }
 
 module.exports = calculateOrigami;
