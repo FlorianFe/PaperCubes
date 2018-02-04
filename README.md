@@ -77,4 +77,4 @@ npm run-script dist
 - The Texture Pack <i>Pixel Perfection</i> ([Link](http://www.minecraftforum.net/forums/mapping-and-modding-java-edition/resource-packs/1242533-pixel-perfection-now-with-polar-bears-1-11)) which is used for the Screenshots was made by <i>Hugh "XSSheep" Rutland</i>.
 
 ## 📖 License
-[![forthebadge](http://forthebadge.com/images/badges/cc-nc.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/cc-nc.svg)](https://creativecommons.org/licenses/by-nc/3.0/)
