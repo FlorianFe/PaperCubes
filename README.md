@@ -2,11 +2,15 @@
 <p align="center">
   <img alt="Icon" src="https://florianfe.github.io/screenshots/PaperCubes/icon.png">
   <h1 align="center">🏡🖨 PaperCubes</h1>
-  <p align="center">A desktop app which converts your minecraft <a href="http://www.minecraft-schematics.com/worldedit/tutorial/">.schematic</a> files <br>you got from <a href="https://github.com/sk89q/WorldEdit">worldedit</a> into blueprints for papercraft.
+  <p align="center">
+A desktop app which converts your minecraft <a href="http://www.minecraft-schematics.com/worldedit/tutorial/">.schematic</a> files <br>you got from <a href="https://github.com/sk89q/WorldEdit">worldedit</a> into blueprints for papercraft.
   <br><br>
-  PaperCubes is still in BETA. Errors may occur. <br> When you found one, please open an issue for me. 
+  PaperCubes is still in BETA. Errors may occur. <br> When you found one, please open an issue for me. <br><br>
+  <a href="http://forthebadge.com"><img alt="forthebadge" src="http://forthebadge.com/images/badges/built-with-love.svg"></a>
+  <a href="http://forthebadge.com"><img alt="forthebadge" src="http://forthebadge.com/images/badges/uses-js.svg"></a>
   </p>
 </p>
+
 
 <br>
 
@@ -71,3 +75,6 @@ npm run-script dist
 ## 🗒 Note
 - This Project was inspired by [Orthogami](https://github.com/mikolalysenko/orthogami) (made by mikolalysenko).
 - The Texture Pack <i>Pixel Perfection</i> ([Link](http://www.minecraftforum.net/forums/mapping-and-modding-java-edition/resource-packs/1242533-pixel-perfection-now-with-polar-bears-1-11)) which is used for the Screenshots was made by <i>Hugh "XSSheep" Rutland</i>.
+
+## 📖 License
+[![forthebadge](http://forthebadge.com/images/badges/cc-nc.svg)](http://forthebadge.com)
