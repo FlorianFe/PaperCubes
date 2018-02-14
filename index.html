@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>PaperCubes</title>
+    <link rel="import" href="bower_components/neon-animation/web-animations.html">
+    <link rel="import" href="paper-cubes/paper-cubes.html">
+  </head>
+  <body>
+
+    <style>
+
+    *
+    {
+      image-rendering: pixelated;
+    }
+
+    html
+    {
+      height: 100%;
+
+      --primary-color: #8bc34a;
+      --light-primary-color: #cddc39;
+      --dark-primary-color: #4caf50;
+    }
+
+    body
+    {
+      height: 100%;
+    }
+
+    #printing-container
+    {
+      display: none;
+    }
+
+    @media print
+    {
+      #printing-container
+      {
+        display: block
+      }
+
+      mc-origami
+      {
+        display: none;
+      }
+
+      hr.page-start
+      {
+        page-break-before: always;
+        visibility: hidden;
+      }
+    }
+
+    </style>
+
+    <paper-cubes><paper-cubes>
+    <div id="printing-container">Printing...</div>
+  </body>
+</html>

@@ -1,0 +1,466 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		17107AFA1F83A18200E86984 /* Edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17107AF91F83A18200E86984 /* Edge.cpp */; };
+		17107AFE1F83AA8500E86984 /* OrthogamiEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17107AFD1F83AA8500E86984 /* OrthogamiEdge.cpp */; };
+		175B3FC01FF560B80088CFC4 /* extractOrthogamiFaces.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 175B3FBE1FF560B80088CFC4 /* extractOrthogamiFaces.cpp */; };
+		175B3FC41FF568EB0088CFC4 /* calculateTiles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 175B3FC21FF568EB0088CFC4 /* calculateTiles.cpp */; };
+		175B3FC81FF569000088CFC4 /* calculateLinks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 175B3FC61FF569000088CFC4 /* calculateLinks.cpp */; };
+		175CBECB1F810E3B0029F38B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 175CBECA1F810E3B0029F38B /* main.cpp */; };
+		175E86C71F83D57C008CEEEE /* testVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 175E86C61F83D57C008CEEEE /* testVector.cpp */; };
+		175E86C91F83D6F8008CEEEE /* testEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 175E86C81F83D6F8008CEEEE /* testEdge.cpp */; };
+		175E86CB1F83D9C0008CEEEE /* testFace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 175E86CA1F83D9C0008CEEEE /* testFace.cpp */; };
+		175E86D11F83EEBB008CEEEE /* OrthogamiFace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 175E86D01F83EEBB008CEEEE /* OrthogamiFace.cpp */; };
+		1772DDA51FFFFA2D00E6FF8F /* calculatePages.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1772DDA31FFFFA2D00E6FF8F /* calculatePages.cpp */; };
+		17B5939A1F84F142002C7945 /* Blueprint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17B593991F84F142002C7945 /* Blueprint.cpp */; };
+		17B5939E1F85301C002C7945 /* prepareMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17B5939D1F85301C002C7945 /* prepareMatrix.cpp */; };
+		17B593A31F8535BE002C7945 /* extractBlueprintVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17B593A21F8535BE002C7945 /* extractBlueprintVector.cpp */; };
+		17CB26781F812CDE0086E9BA /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17CB26771F812CDE0086E9BA /* Matrix.cpp */; };
+		17CB267D1F813F960086E9BA /* Face.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17CB267B1F813F960086E9BA /* Face.cpp */; };
+		17CB26801F81400C0086E9BA /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17CB267E1F81400C0086E9BA /* Vector.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		175CBEC51F810E3B0029F38B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		17107AF81F83A17700E86984 /* Edge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Edge.h; sourceTree = "<group>"; };
+		17107AF91F83A18200E86984 /* Edge.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Edge.cpp; sourceTree = "<group>"; };
+		17107AFC1F83AA7400E86984 /* OrthogamiEdge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrthogamiEdge.h; sourceTree = "<group>"; };
+		17107AFD1F83AA8500E86984 /* OrthogamiEdge.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OrthogamiEdge.cpp; sourceTree = "<group>"; };
+		175B3FBE1FF560B80088CFC4 /* extractOrthogamiFaces.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = extractOrthogamiFaces.cpp; sourceTree = "<group>"; };
+		175B3FBF1FF560B80088CFC4 /* extractOrthogamiFaces.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = extractOrthogamiFaces.hpp; sourceTree = "<group>"; };
+		175B3FC21FF568EB0088CFC4 /* calculateTiles.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = calculateTiles.cpp; sourceTree = "<group>"; };
+		175B3FC31FF568EB0088CFC4 /* calculateTiles.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = calculateTiles.hpp; sourceTree = "<group>"; };
+		175B3FC61FF569000088CFC4 /* calculateLinks.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = calculateLinks.cpp; sourceTree = "<group>"; };
+		175B3FC71FF569000088CFC4 /* calculateLinks.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = calculateLinks.hpp; sourceTree = "<group>"; };
+		175CBEC71F810E3B0029F38B /* Minecraft-Orthogami */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Minecraft-Orthogami"; sourceTree = BUILT_PRODUCTS_DIR; };
+		175CBECA1F810E3B0029F38B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		175E86C61F83D57C008CEEEE /* testVector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testVector.cpp; sourceTree = "<group>"; };
+		175E86C81F83D6F8008CEEEE /* testEdge.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testEdge.cpp; sourceTree = "<group>"; };
+		175E86CA1F83D9C0008CEEEE /* testFace.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testFace.cpp; sourceTree = "<group>"; };
+		175E86CF1F83EEA8008CEEEE /* OrthogamiFace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrthogamiFace.h; sourceTree = "<group>"; };
+		175E86D01F83EEBB008CEEEE /* OrthogamiFace.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OrthogamiFace.cpp; sourceTree = "<group>"; };
+		1772DDA31FFFFA2D00E6FF8F /* calculatePages.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = calculatePages.cpp; sourceTree = "<group>"; };
+		1772DDA41FFFFA2D00E6FF8F /* calculatePages.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = calculatePages.hpp; sourceTree = "<group>"; };
+		17B593991F84F142002C7945 /* Blueprint.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Blueprint.cpp; sourceTree = "<group>"; };
+		17B5939B1F84F150002C7945 /* Blueprint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Blueprint.h; sourceTree = "<group>"; };
+		17B5939D1F85301C002C7945 /* prepareMatrix.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = prepareMatrix.cpp; sourceTree = "<group>"; };
+		17B5939F1F853027002C7945 /* prepareMatrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = prepareMatrix.h; sourceTree = "<group>"; };
+		17B593A11F8535AF002C7945 /* extractBlueprintVector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = extractBlueprintVector.h; sourceTree = "<group>"; };
+		17B593A21F8535BE002C7945 /* extractBlueprintVector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = extractBlueprintVector.cpp; sourceTree = "<group>"; };
+		17CB26741F812CB30086E9BA /* Matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
+		17CB26771F812CDE0086E9BA /* Matrix.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix.cpp; sourceTree = "<group>"; };
+		17CB267B1F813F960086E9BA /* Face.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Face.cpp; sourceTree = "<group>"; };
+		17CB267C1F813F960086E9BA /* Face.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Face.h; sourceTree = "<group>"; };
+		17CB267E1F81400C0086E9BA /* Vector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
+		17CB267F1F81400C0086E9BA /* Vector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		175CBEC41F810E3B0029F38B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17107AF71F83A16A00E86984 /* Edge */ = {
+			isa = PBXGroup;
+			children = (
+				17107AF81F83A17700E86984 /* Edge.h */,
+				17107AF91F83A18200E86984 /* Edge.cpp */,
+				175E86C81F83D6F8008CEEEE /* testEdge.cpp */,
+			);
+			name = Edge;
+			sourceTree = "<group>";
+		};
+		17107AFB1F83AA6000E86984 /* OrthogamiEdge */ = {
+			isa = PBXGroup;
+			children = (
+				17107AFC1F83AA7400E86984 /* OrthogamiEdge.h */,
+				17107AFD1F83AA8500E86984 /* OrthogamiEdge.cpp */,
+			);
+			name = OrthogamiEdge;
+			sourceTree = "<group>";
+		};
+		175B3FBD1FF560760088CFC4 /* extractOrthogamiFaces */ = {
+			isa = PBXGroup;
+			children = (
+				17CB267A1F813F7D0086E9BA /* Face */,
+				17107AF71F83A16A00E86984 /* Edge */,
+				175B3FBE1FF560B80088CFC4 /* extractOrthogamiFaces.cpp */,
+				175B3FBF1FF560B80088CFC4 /* extractOrthogamiFaces.hpp */,
+			);
+			name = extractOrthogamiFaces;
+			sourceTree = "<group>";
+		};
+		175B3FC11FF568DC0088CFC4 /* calculateTiles */ = {
+			isa = PBXGroup;
+			children = (
+				175B3FC21FF568EB0088CFC4 /* calculateTiles.cpp */,
+				175B3FC31FF568EB0088CFC4 /* calculateTiles.hpp */,
+			);
+			name = calculateTiles;
+			sourceTree = "<group>";
+		};
+		175B3FC51FF568F00088CFC4 /* calculateLinks */ = {
+			isa = PBXGroup;
+			children = (
+				175B3FC61FF569000088CFC4 /* calculateLinks.cpp */,
+				175B3FC71FF569000088CFC4 /* calculateLinks.hpp */,
+			);
+			name = calculateLinks;
+			sourceTree = "<group>";
+		};
+		175CBEBE1F810E3B0029F38B = {
+			isa = PBXGroup;
+			children = (
+				175CBEC91F810E3B0029F38B /* Minecraft-Orthogami */,
+				175CBEC81F810E3B0029F38B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		175CBEC81F810E3B0029F38B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				175CBEC71F810E3B0029F38B /* Minecraft-Orthogami */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		175CBEC91F810E3B0029F38B /* Minecraft-Orthogami */ = {
+			isa = PBXGroup;
+			children = (
+				1772DDA21FFFFA1200E6FF8F /* calculatePages */,
+				175B3FBD1FF560760088CFC4 /* extractOrthogamiFaces */,
+				17CB26811F8140140086E9BA /* Vector */,
+				17B593A01F853584002C7945 /* extractBlueprintVector */,
+				17B5939C1F853004002C7945 /* prepareMatrix */,
+				17B593981F84F133002C7945 /* Blueprint */,
+				175E86CD1F83EE88008CEEEE /* OrthogamiFace */,
+				17107AFB1F83AA6000E86984 /* OrthogamiEdge */,
+				17CB26761F812CC00086E9BA /* Matrix */,
+				175CBECA1F810E3B0029F38B /* main.cpp */,
+			);
+			path = "Minecraft-Orthogami";
+			sourceTree = "<group>";
+		};
+		175E86CD1F83EE88008CEEEE /* OrthogamiFace */ = {
+			isa = PBXGroup;
+			children = (
+				175E86CF1F83EEA8008CEEEE /* OrthogamiFace.h */,
+				175E86D01F83EEBB008CEEEE /* OrthogamiFace.cpp */,
+			);
+			name = OrthogamiFace;
+			sourceTree = "<group>";
+		};
+		1772DDA21FFFFA1200E6FF8F /* calculatePages */ = {
+			isa = PBXGroup;
+			children = (
+				175B3FC11FF568DC0088CFC4 /* calculateTiles */,
+				175B3FC51FF568F00088CFC4 /* calculateLinks */,
+				1772DDA31FFFFA2D00E6FF8F /* calculatePages.cpp */,
+				1772DDA41FFFFA2D00E6FF8F /* calculatePages.hpp */,
+			);
+			name = calculatePages;
+			sourceTree = "<group>";
+		};
+		17B593981F84F133002C7945 /* Blueprint */ = {
+			isa = PBXGroup;
+			children = (
+				17B593991F84F142002C7945 /* Blueprint.cpp */,
+				17B5939B1F84F150002C7945 /* Blueprint.h */,
+			);
+			name = Blueprint;
+			sourceTree = "<group>";
+		};
+		17B5939C1F853004002C7945 /* prepareMatrix */ = {
+			isa = PBXGroup;
+			children = (
+				17B5939D1F85301C002C7945 /* prepareMatrix.cpp */,
+				17B5939F1F853027002C7945 /* prepareMatrix.h */,
+			);
+			name = prepareMatrix;
+			sourceTree = "<group>";
+		};
+		17B593A01F853584002C7945 /* extractBlueprintVector */ = {
+			isa = PBXGroup;
+			children = (
+				17B593A11F8535AF002C7945 /* extractBlueprintVector.h */,
+				17B593A21F8535BE002C7945 /* extractBlueprintVector.cpp */,
+			);
+			name = extractBlueprintVector;
+			sourceTree = "<group>";
+		};
+		17CB26761F812CC00086E9BA /* Matrix */ = {
+			isa = PBXGroup;
+			children = (
+				17CB26741F812CB30086E9BA /* Matrix.h */,
+				17CB26771F812CDE0086E9BA /* Matrix.cpp */,
+			);
+			name = Matrix;
+			sourceTree = "<group>";
+		};
+		17CB267A1F813F7D0086E9BA /* Face */ = {
+			isa = PBXGroup;
+			children = (
+				17CB267B1F813F960086E9BA /* Face.cpp */,
+				17CB267C1F813F960086E9BA /* Face.h */,
+				175E86CA1F83D9C0008CEEEE /* testFace.cpp */,
+			);
+			name = Face;
+			sourceTree = "<group>";
+		};
+		17CB26811F8140140086E9BA /* Vector */ = {
+			isa = PBXGroup;
+			children = (
+				17CB267E1F81400C0086E9BA /* Vector.cpp */,
+				17CB267F1F81400C0086E9BA /* Vector.h */,
+				175E86C61F83D57C008CEEEE /* testVector.cpp */,
+			);
+			name = Vector;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		175CBEC61F810E3B0029F38B /* Minecraft-Orthogami */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 175CBECE1F810E3B0029F38B /* Build configuration list for PBXNativeTarget "Minecraft-Orthogami" */;
+			buildPhases = (
+				175CBEC31F810E3B0029F38B /* Sources */,
+				175CBEC41F810E3B0029F38B /* Frameworks */,
+				175CBEC51F810E3B0029F38B /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Minecraft-Orthogami";
+			productName = "Minecraft-Orthogami";
+			productReference = 175CBEC71F810E3B0029F38B /* Minecraft-Orthogami */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		175CBEBF1F810E3B0029F38B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Florian Fechner";
+				TargetAttributes = {
+					175CBEC61F810E3B0029F38B = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 175CBEC21F810E3B0029F38B /* Build configuration list for PBXProject "Minecraft-Orthogami" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 175CBEBE1F810E3B0029F38B;
+			productRefGroup = 175CBEC81F810E3B0029F38B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				175CBEC61F810E3B0029F38B /* Minecraft-Orthogami */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		175CBEC31F810E3B0029F38B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17CB267D1F813F960086E9BA /* Face.cpp in Sources */,
+				17CB26781F812CDE0086E9BA /* Matrix.cpp in Sources */,
+				175B3FC41FF568EB0088CFC4 /* calculateTiles.cpp in Sources */,
+				175E86C91F83D6F8008CEEEE /* testEdge.cpp in Sources */,
+				175E86C71F83D57C008CEEEE /* testVector.cpp in Sources */,
+				17B5939E1F85301C002C7945 /* prepareMatrix.cpp in Sources */,
+				175E86CB1F83D9C0008CEEEE /* testFace.cpp in Sources */,
+				17B593A31F8535BE002C7945 /* extractBlueprintVector.cpp in Sources */,
+				1772DDA51FFFFA2D00E6FF8F /* calculatePages.cpp in Sources */,
+				175B3FC81FF569000088CFC4 /* calculateLinks.cpp in Sources */,
+				175B3FC01FF560B80088CFC4 /* extractOrthogamiFaces.cpp in Sources */,
+				17CB26801F81400C0086E9BA /* Vector.cpp in Sources */,
+				17107AFE1F83AA8500E86984 /* OrthogamiEdge.cpp in Sources */,
+				17B5939A1F84F142002C7945 /* Blueprint.cpp in Sources */,
+				175E86D11F83EEBB008CEEEE /* OrthogamiFace.cpp in Sources */,
+				175CBECB1F810E3B0029F38B /* main.cpp in Sources */,
+				17107AFA1F83A18200E86984 /* Edge.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		175CBECC1F810E3B0029F38B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		175CBECD1F810E3B0029F38B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		175CBECF1F810E3B0029F38B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		175CBED01F810E3B0029F38B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		175CBEC21F810E3B0029F38B /* Build configuration list for PBXProject "Minecraft-Orthogami" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				175CBECC1F810E3B0029F38B /* Debug */,
+				175CBECD1F810E3B0029F38B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		175CBECE1F810E3B0029F38B /* Build configuration list for PBXNativeTarget "Minecraft-Orthogami" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				175CBECF1F810E3B0029F38B /* Debug */,
+				175CBED01F810E3B0029F38B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 175CBEBF1F810E3B0029F38B /* Project object */;
+}
