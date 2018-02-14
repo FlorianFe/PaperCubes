@@ -23,8 +23,15 @@
 10. 🏘 Make amazing minecraft builds in real!
 
 ## 📝 Source Code
-In order to use this source code you need to have Node.js, Git and Bower installed globally. After that you have to follow the steps below (<b>Only available for MacOS at the moment</b>).
+In order to use this source code you need to have Node.js, Git and Bower installed globally. After that you have to follow the steps below. 
 
+<b>Only for Windows (as admin)</b>
+```bash
+npm install --global --production windows-build-tools
+npm config set msvs_version 2015 --global
+```
+
+<b>For all platforms</b>
 ```bash
 # Clone this repository
 git clone https://github.com/florianfe/PaperCubes
@@ -34,10 +41,12 @@ cd Elements
 npm install
 # Install bower dependencies
 bower install
+# Compile C++ sources
+npm run-script compile
 # Run the app in test mode
 npm start
 # build application for release
-npm run-script dist
+[sudo] npm run-script dist
 ```
 
 ## 🖼 Preview
