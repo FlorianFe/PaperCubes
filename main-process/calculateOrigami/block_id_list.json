@@ -205,39 +205,39 @@
     },
     "2":
     {
-      "north": "dispenser_front_horizontal",
-      "south": "furnace_top:180",
-      "top": "furnace_side:180",
-      "east": "furnace_side:90",
-      "bottom": "furnace_side:0",
-      "west": "furnace_side:270"
-    },
-    "3":
-    {
-      "south": "dispenser_front_horizontal:180",
-      "north": "furnace_top",
+      "north": "dispenser_front_horizontal:180",
+      "south": "furnace_top:0",
       "top": "furnace_side:0",
       "east": "furnace_side:270",
       "bottom": "furnace_side:180",
       "west": "furnace_side:90"
     },
+    "3":
+    {
+      "south": "dispenser_front_horizontal:0",
+      "north": "furnace_top:180",
+      "top": "furnace_side:180",
+      "east": "furnace_side:90",
+      "bottom": "furnace_side:0",
+      "west": "furnace_side:270"
+    },
     "4":
     {
-      "east": "dispenser_front_horizontal:270",
-      "west": "furnace_top:270",
-      "top": "furnace_side:270",
-      "bottom": "furnace_side:90",
-      "north": "furnace_side:270",
-      "south": "furnace_side:90"
-    },
-    "5":
-    {
-      "west": "dispenser_front_horizontal:90",
-      "east": "furnace_top:90",
+      "east": "dispenser_front_horizontal:90",
+      "west": "furnace_top:90",
       "top": "furnace_side:90",
       "bottom": "furnace_side:270",
       "north": "furnace_side:90",
       "south": "furnace_side:270"
+    },
+    "5":
+    {
+      "west": "dispenser_front_horizontal:270",
+      "east": "furnace_top:270",
+      "top": "furnace_side:270",
+      "bottom": "furnace_side:90",
+      "north": "furnace_side:270",
+      "south": "furnace_side:90"
     }
   },
   "24":
@@ -281,39 +281,39 @@
     },
     "2":
     {
-      "north": "piston_top_normal",
-      "south": "piston_bottom:180",
-      "top": "piston_side:180",
-      "east": "piston_side:90",
-      "bottom": "piston_side:0",
-      "west": "piston_side:270"
-    },
-    "3":
-    {
-      "south": "piston_top_normal:180",
-      "north": "piston_bottom",
+      "north": "piston_top_normal:180",
+      "south": "piston_bottom:0",
       "top": "piston_side:0",
       "east": "piston_side:270",
       "bottom": "piston_side:180",
       "west": "piston_side:90"
     },
+    "3":
+    {
+      "south": "piston_top_normal:0",
+      "north": "piston_bottom:180",
+      "top": "piston_side:180",
+      "east": "piston_side:90",
+      "bottom": "piston_side:0",
+      "west": "piston_side:270"
+    },
     "4":
     {
-      "east": "piston_top_normal:270",
-      "west": "piston_bottom:270",
-      "top": "piston_side:270",
-      "bottom": "piston_side:90",
-      "north": "piston_side:270",
-      "south": "piston_side:90"
-    },
-    "5":
-    {
-      "west": "piston_top_normal:90",
-      "east": "piston_bottom:90",
+      "east": "piston_top_normal:90",
+      "west": "piston_bottom:90",
       "top": "piston_side:90",
       "bottom": "piston_side:270",
       "north": "piston_side:90",
       "south": "piston_side:270"
+    },
+    "5":
+    {
+      "west": "piston_top_normal:270",
+      "east": "piston_bottom:270",
+      "top": "piston_side:270",
+      "bottom": "piston_side:90",
+      "north": "piston_side:270",
+      "south": "piston_side:90"
     },
     "8":
     {
@@ -329,39 +329,39 @@
     },
     "10":
     {
-      "north": "piston_inner",
-      "south": "piston_bottom:180",
-      "top": "piston_side:180",
-      "east": "piston_side:90",
-      "bottom": "piston_side:0",
-      "west": "piston_side:270"
-    },
-    "11":
-    {
-      "south": "piston_inner:180",
-      "north": "piston_bottom",
+      "north": "piston_inner:180",
+      "south": "piston_bottom:0",
       "top": "piston_side:0",
       "east": "piston_side:270",
       "bottom": "piston_side:180",
       "west": "piston_side:90"
     },
+    "11":
+    {
+      "south": "piston_inner:0",
+      "north": "piston_bottom:180",
+      "top": "piston_side:180",
+      "east": "piston_side:90",
+      "bottom": "piston_side:0",
+      "west": "piston_side:270"
+    },
     "12":
     {
-      "east": "piston_inner:270",
-      "west": "piston_bottom:270",
-      "top": "piston_side:270",
-      "bottom": "piston_side:90",
-      "north": "piston_side:270",
-      "south": "piston_side:90"
-    },
-    "13":
-    {
-      "west": "piston_inner:90",
-      "east": "piston_bottom:90",
+      "east": "piston_inner:90",
+      "west": "piston_bottom:90",
       "top": "piston_side:90",
       "bottom": "piston_side:270",
       "north": "piston_side:90",
       "south": "piston_side:270"
+    },
+    "13":
+    {
+      "west": "piston_inner:270",
+      "east": "piston_bottom:270",
+      "top": "piston_side:270",
+      "bottom": "piston_side:90",
+      "north": "piston_side:270",
+      "south": "piston_side:90"
     }
   },
   "33":
@@ -380,39 +380,39 @@
     },
     "2":
     {
-      "north": "piston_top_sticky",
-      "south": "piston_bottom:180",
-      "top": "piston_side:180",
-      "east": "piston_side:90",
-      "bottom": "piston_side:0",
-      "west": "piston_side:270"
-    },
-    "3":
-    {
-      "south": "piston_top_sticky:180",
-      "north": "piston_bottom",
+      "north": "piston_top_sticky:180",
+      "south": "piston_bottom:0",
       "top": "piston_side:0",
       "east": "piston_side:270",
       "bottom": "piston_side:180",
       "west": "piston_side:90"
     },
+    "3":
+    {
+      "south": "piston_top_sticky:0",
+      "north": "piston_bottom:180",
+      "top": "piston_side:180",
+      "east": "piston_side:90",
+      "bottom": "piston_side:0",
+      "west": "piston_side:270"
+    },
     "4":
     {
-      "east": "piston_top_sticky:270",
-      "west": "piston_bottom:270",
-      "top": "piston_side:270",
-      "bottom": "piston_side:90",
-      "north": "piston_side:270",
-      "south": "piston_side:90"
-    },
-    "5":
-    {
-      "west": "piston_top_sticky:90",
-      "east": "piston_bottom:90",
+      "east": "piston_top_sticky:90",
+      "west": "piston_bottom:90",
       "top": "piston_side:90",
       "bottom": "piston_side:270",
       "north": "piston_side:90",
       "south": "piston_side:270"
+    },
+    "5":
+    {
+      "west": "piston_top_sticky:270",
+      "east": "piston_bottom:270",
+      "top": "piston_side:270",
+      "bottom": "piston_side:90",
+      "north": "piston_side:270",
+      "south": "piston_side:90"
     },
     "8":
     {
@@ -428,39 +428,39 @@
     },
     "10":
     {
-      "north": "piston_inner",
-      "south": "piston_bottom:180",
-      "top": "piston_side:180",
-      "east": "piston_side:90",
-      "bottom": "piston_side:0",
-      "west": "piston_side:270"
-    },
-    "11":
-    {
-      "south": "piston_inner:180",
-      "north": "piston_bottom",
+      "north": "piston_inner:180",
+      "south": "piston_bottom:0",
       "top": "piston_side:0",
       "east": "piston_side:270",
       "bottom": "piston_side:180",
       "west": "piston_side:90"
     },
+    "11":
+    {
+      "south": "piston_inner:0",
+      "north": "piston_bottom:180",
+      "top": "piston_side:180",
+      "east": "piston_side:90",
+      "bottom": "piston_side:0",
+      "west": "piston_side:270"
+    },
     "12":
     {
-      "east": "piston_inner:270",
-      "west": "piston_bottom:270",
-      "top": "piston_side:270",
-      "bottom": "piston_side:90",
-      "north": "piston_side:270",
-      "south": "piston_side:90"
-    },
-    "13":
-    {
-      "west": "piston_inner:90",
-      "east": "piston_bottom:90",
+      "east": "piston_inner:90",
+      "west": "piston_bottom:90",
       "top": "piston_side:90",
       "bottom": "piston_side:270",
       "north": "piston_side:90",
       "south": "piston_side:270"
+    },
+    "13":
+    {
+      "west": "piston_inner:270",
+      "east": "piston_bottom:270",
+      "top": "piston_side:270",
+      "bottom": "piston_side:90",
+      "north": "piston_side:270",
+      "south": "piston_side:90"
     }
   },
   "35":
@@ -997,39 +997,39 @@
     },
     "2":
     {
-      "north": "dropper_front_horizontal",
-      "south": "furnace_top:180",
-      "top": "furnace_side:180",
-      "east": "furnace_side:90",
-      "bottom": "furnace_side:0",
-      "west": "furnace_side:270"
-    },
-    "3":
-    {
-      "south": "dropper_front_horizontal:180",
-      "north": "furnace_top",
+      "north": "dropper_front_horizontal:180",
+      "south": "furnace_top:0",
       "top": "furnace_side:0",
       "east": "furnace_side:270",
       "bottom": "furnace_side:180",
       "west": "furnace_side:90"
     },
+    "3":
+    {
+      "south": "dropper_front_horizontal:0",
+      "north": "furnace_top:180",
+      "top": "furnace_side:180",
+      "east": "furnace_side:90",
+      "bottom": "furnace_side:0",
+      "west": "furnace_side:270"
+    },
     "4":
     {
-      "east": "dropper_front_horizontal:270",
-      "west": "furnace_top:270",
-      "top": "furnace_side:270",
-      "bottom": "furnace_side:90",
-      "north": "furnace_side:270",
-      "south": "furnace_side:90"
-    },
-    "5":
-    {
-      "west": "dropper_front_horizontal:90",
-      "east": "furnace_top:90",
+      "east": "dropper_front_horizontal:90",
+      "west": "furnace_top:90",
       "top": "furnace_side:90",
       "bottom": "furnace_side:270",
       "north": "furnace_side:90",
       "south": "furnace_side:270"
+    },
+    "5":
+    {
+      "west": "dropper_front_horizontal:270",
+      "east": "furnace_top:270",
+      "top": "furnace_side:270",
+      "bottom": "furnace_side:90",
+      "north": "furnace_side:270",
+      "south": "furnace_side:90"
     }
   },
   "169":
@@ -1165,39 +1165,39 @@
     },
     "2":
     {
-      "north": "observer_front",
-      "south": "observer_back:180",
-      "top": "observer_top:180",
-      "east": "observer_side:90",
-      "bottom": "observer_top:0",
-      "west": "observer_side:270"
-    },
-    "3":
-    {
-      "south": "observer_front:180",
-      "north": "observer_back",
+      "north": "observer_front:180",
+      "south": "observer_back:0",
       "top": "observer_top:0",
       "east": "observer_side:270",
       "bottom": "observer_top:180",
       "west": "observer_side:90"
     },
+    "3":
+    {
+      "south": "observer_front:0",
+      "north": "observer_back:180",
+      "top": "observer_top:180",
+      "east": "observer_side:90",
+      "bottom": "observer_top:0",
+      "west": "observer_side:270"
+    },
     "4":
     {
-      "east": "observer_front:270",
-      "west": "observer_back:270",
-      "top": "observer_top:270",
-      "bottom": "observer_top:90",
-      "north": "observer_side:270",
-      "south": "observer_side:90"
-    },
-    "5":
-    {
-      "west": "observer_front:90",
-      "east": "observer_back:90",
+      "east": "observer_front:90",
+      "west": "observer_back:90",
       "top": "observer_top:90",
       "bottom": "observer_top:270",
       "north": "observer_side:90",
       "south": "observer_side:270"
+    },
+    "5":
+    {
+      "west": "observer_front:270",
+      "east": "observer_back:270",
+      "top": "observer_top:270",
+      "bottom": "observer_top:90",
+      "north": "observer_side:270",
+      "south": "observer_side:90"
     },
     "8":
     {
@@ -1219,39 +1219,39 @@
     },
     "10":
     {
-      "north": "observer_front",
-      "south": "observer_back_lit:180",
-      "top": "observer_top:180",
-      "east": "observer_side:90",
-      "bottom": "observer_top:0",
-      "west": "observer_side:270"
-    },
-    "11":
-    {
-      "south": "observer_front:180",
-      "north": "observer_back_lit",
+      "north": "observer_front:180",
+      "south": "observer_back_lit:0",
       "top": "observer_top:0",
       "east": "observer_side:270",
       "bottom": "observer_top:180",
       "west": "observer_side:90"
     },
+    "11":
+    {
+      "south": "observer_front:0",
+      "north": "observer_back_lit:180",
+      "top": "observer_top:180",
+      "east": "observer_side:90",
+      "bottom": "observer_top:0",
+      "west": "observer_side:270"
+    },
     "12":
     {
-      "east": "observer_front:270",
-      "west": "observer_back_lit:270",
-      "top": "observer_top:270",
-      "bottom": "observer_top:90",
-      "north": "observer_side:270",
-      "south": "observer_side:90"
-    },
-    "13":
-    {
-      "west": "observer_front:90",
-      "east": "observer_back_lit:90",
+      "east": "observer_front:90",
+      "west": "observer_back_lit:90",
       "top": "observer_top:90",
       "bottom": "observer_top:270",
       "north": "observer_side:90",
       "south": "observer_side:270"
+    },
+    "13":
+    {
+      "west": "observer_front:270",
+      "east": "observer_back_lit:270",
+      "top": "observer_top:270",
+      "bottom": "observer_top:90",
+      "north": "observer_side:270",
+      "south": "observer_side:90"
     }
   },
   "251":
