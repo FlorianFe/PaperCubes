@@ -89,51 +89,75 @@
     },
     "4":
     {
-      "east": "log_oak_top",
+      "east": "log_oak_top:180",
       "west": "log_oak_top",
-      "*": "log_oak"
+      "top": "log_oak:90",
+      "bottom": "log_oak:270",
+      "north": "log_oak:90",
+      "south": "log_oak:270"
     },
     "5":
     {
-      "east": "log_spruce_top",
+      "east": "log_spruce_top:180",
       "west": "log_spruce_top",
-      "*": "log_spruce"
+      "top": "log_spruce:90",
+      "bottom": "log_spruce:270",
+      "north": "log_spruce:90",
+      "south": "log_spruce:270"
     },
     "6":
     {
-      "east": "log_birch_top",
+      "east": "log_birch_top:180",
       "west": "log_birch_top",
-      "*": "log_birch"
+      "top": "log_birch:90",
+      "bottom": "log_birch:270",
+      "north": "log_birch:90",
+      "south": "log_birch:270"
     },
     "7":
     {
-      "east": "log_jungle_top",
+      "east": "log_jungle_top:180",
       "west": "log_jungle_top",
-      "*": "log_jungle"
+      "top": "log_jungle:90",
+      "bottom": "log_jungle:270",
+      "north": "log_jungle:90",
+      "south": "log_jungle:270"
     },
     "8":
     {
-      "north": "log_oak_top",
+      "north": "log_oak_top:180",
       "south": "log_oak_top",
-      "*": "log_oak"
+      "top": "log_oak",
+      "bottom": "log_oak:180",
+      "east": "log_oak:90",
+      "west": "log_oak:270"
     },
     "9":
     {
-      "north": "log_spruce_top",
+      "north": "log_spruce_top:180",
       "south": "log_spruce_top",
-      "*": "log_spruce"
+      "top": "log_spruce",
+      "bottom": "log_spruce:180",
+      "east": "log_spruce:90",
+      "west": "log_spruce:270"
     },
     "10":
     {
-      "north": "log_birch_top",
+      "north": "log_birch_top:180",
       "south": "log_birch_top",
-      "*": "log_birch"
+      "top": "log_birch",
+      "bottom": "log_birch:180",
+      "east": "log_birch:90",
+      "west": "log_birch:270"
     },
     "11":
     {
-      "north": "log_jungle_top",
+      "north": "log_jungle_top:180",
       "south": "log_jungle_top",
-      "*": "log_jungle"
+      "top": "log_jungle",
+      "bottom": "log_jungle:180",
+      "east": "log_jungle:90",
+      "west": "log_jungle:270"
     },
     "12":
     {
@@ -546,28 +570,28 @@
     "2":
     {
       "top": "furnace_top",
-      "bottom": "furnace_bottom",
+      "bottom": "furnace_top",
       "north": "furnace_front_off",
       "*": "furnace_side"
     },
     "3":
     {
       "top": "furnace_top",
-      "bottom": "furnace_bottom",
+      "bottom": "furnace_top",
       "south": "furnace_front_off",
       "*": "furnace_side"
     },
     "4":
     {
       "top": "furnace_top",
-      "bottom": "furnace_bottom",
+      "bottom": "furnace_top",
       "west": "furnace_front_off",
       "*": "furnace_side"
     },
     "5":
     {
       "top": "furnace_top",
-      "bottom": "furnace_bottom",
+      "bottom": "furnace_top",
       "east": "furnace_front_off",
       "*": "furnace_side"
     }
@@ -577,28 +601,28 @@
     "2":
     {
       "top": "furnace_top",
-      "bottom": "furnace_bottom",
+      "bottom": "furnace_top",
       "north": "furnace_front_on",
       "*": "furnace_side"
     },
     "3":
     {
       "top": "furnace_top",
-      "bottom": "furnace_bottom",
+      "bottom": "furnace_top",
       "south": "furnace_front_on",
       "*": "furnace_side"
     },
     "4":
     {
       "top": "furnace_top",
-      "bottom": "furnace_bottom",
+      "bottom": "furnace_top",
       "west": "furnace_front_on",
       "*": "furnace_side"
     },
     "5":
     {
       "top": "furnace_top",
-      "bottom": "furnace_bottom",
+      "bottom": "furnace_top",
       "east": "furnace_front_on",
       "*": "furnace_side"
     }
@@ -904,27 +928,39 @@
     },
     "4":
     {
-      "east": "log_acania_top",
+      "east": "log_acania_top:180",
       "west": "log_acania_top",
-      "*": "log_acania"
+      "top": "log_acania:90",
+      "bottom": "log_acania:270",
+      "north": "log_acania:90",
+      "south": "log_acania:270"
     },
     "5":
     {
-      "east": "log_big_oak_top",
+      "east": "log_big_oak_top:180",
       "west": "log_big_oak_top",
-      "*": "log_big_oak"
+      "top": "log_big_oak:90",
+      "bottom": "log_big_oak:270",
+      "north": "log_big_oak:90",
+      "south": "log_big_oak:270"
     },
     "8":
     {
-      "north": "log_acania_top",
+      "north": "log_acania_top:180",
       "south": "log_acania_top",
-      "*": "log_acania"
+      "top": "log_acania",
+      "bottom": "log_acania:180",
+      "east": "log_acania:90",
+      "west": "log_acania:270"
     },
     "9":
     {
-      "north": "log_big_oak_top",
+      "north": "log_big_oak_top:180",
       "south": "log_big_oak_top",
-      "*": "log_big_oak"
+      "top": "log_big_oak",
+      "bottom": "log_big_oak:180",
+      "east": "log_big_oak:90",
+      "west": "log_big_oak:270"
     },
     "12":
     {
