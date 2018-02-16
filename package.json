@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "compile": "cd ./main-process/calculateOrigami/m2o/ && node-gyp rebuild --target=1.7.8 --arch=x64 --dist-url=https://atom.io/download/electron",
+    "compile": "cd ./main-process/calculateOrigami/minecraftOrthogami/ && node-gyp rebuild --target=1.7.8 --arch=x64 --dist-url=https://atom.io/download/electron",
     "pack": "build --dir",
     "dist": "build"
   },
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "electron": "1.7.8",
-    "electron-builder": "^19.49.3"
+    "electron-builder": "^19.49.3",
+    "node-gyp": "^3.6.2"
   }
 }

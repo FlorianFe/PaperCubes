@@ -80,7 +80,7 @@
     "globalignorefile": "/usr/local/etc/npmignore",
     "init_author_url": "",
     "maxsockets": "50",
-    "shell": "/bin/sh",
+    "shell": "/bin/bash",
     "metrics_registry": "https://registry.npmjs.org/",
     "parseable": "",
     "shrinkwrap": "true",
@@ -120,7 +120,7 @@
     "userconfig": "/Users/florian/.npmrc",
     "cidr": "",
     "node_version": "9.2.1",
-    "user": "501",
+    "user": "",
     "auth_type": "legacy",
     "editor": "vi",
     "ignore_prepublish": "",
@@ -176,8 +176,8 @@
     "git": "git",
     "init_author_name": "",
     "onload_script": "",
-    "tmp": "/tmp",
-    "unsafe_perm": "",
+    "tmp": "/var/folders/67/6ttq0fyd6153ngwh9yyvzc140000gn/T",
+    "unsafe_perm": "true",
     "prefix": "/usr/local",
     "link": ""
   }
