@@ -21,6 +21,7 @@ struct Link
     unsigned int orientationX;
     unsigned int orientationY;
     bool opened;
+    bool concarve;
 };
 
 std::vector<Link> calculateLinks(std::vector<Blueprint*> blueprintVector, std::vector<OrthogamiFace*> orthogamiFaceVector);

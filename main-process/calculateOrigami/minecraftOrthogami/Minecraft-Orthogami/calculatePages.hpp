@@ -14,6 +14,7 @@
 #include "calculateLinks.hpp"
 #include "Blueprint.h"
 #include "OrthogamiFace.h"
+#include "OrthogamiEdge.h"
 #include "Matrix.h"
 
 struct Page
@@ -22,6 +23,6 @@ struct Page
     std::vector<Link> links;
 };
 
-std::vector<Page> calculatePages(std::vector<Blueprint*> blueprintVector, std::vector<OrthogamiFace*> orthogamiFaceVector, Matrix preparedMatrix, int tilesPerRow, int rowsPerPage);
+std::vector<Page> calculatePages(std::vector<Blueprint*> blueprintVector, std::vector<OrthogamiFace*> orthogamiFaceVector, std::vector<OrthogamiEdge*> orthogamiEdgeVector, Matrix preparedMatrix, int tilesPerRow, int rowsPerPage);
 
 #endif /* calculatePages_hpp */

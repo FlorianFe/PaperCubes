@@ -124,7 +124,7 @@ void orthogami(const FunctionCallbackInfo<Value>& args)
          std::vector<Blueprint*> blueprintVector = extractBlueprintVectorFromOrthogamiFaceVector(orthogamiFaceVector, orthogamiEdgeVector, preparedMatrix);
  
          // Step 5: Calculate Pages
-         std::vector<Page> pages = calculatePages(blueprintVector, orthogamiFaceVector, preparedMatrix, tilesPerRow, rowsPerPage);
+         std::vector<Page> pages = calculatePages(blueprintVector, orthogamiFaceVector, orthogamiEdgeVector, preparedMatrix, tilesPerRow, rowsPerPage);
  
          // blueprint: { ... }
          Local<Object> node_blueprint = Object::New(isolate);
@@ -175,6 +175,7 @@ void orthogami(const FunctionCallbackInfo<Value>& args)
                 node_link->Set(String::NewFromUtf8(isolate, "x"), Integer::New(isolate, link.x));
                 node_link->Set(String::NewFromUtf8(isolate, "y"), Integer::New(isolate, link.y));
                 node_link->Set(String::NewFromUtf8(isolate, "opened"), Boolean::New(isolate, link.opened));
+                node_link->Set(String::NewFromUtf8(isolate, "concarve"), Boolean::New(isolate, link.concarve));
                 
                 Local<Object> node_orientation = Object::New(isolate);
                 node_orientation->Set(String::NewFromUtf8(isolate, "x"), Integer::New(isolate, link.orientationX));

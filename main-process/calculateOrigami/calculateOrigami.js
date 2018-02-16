@@ -50,6 +50,8 @@ function calculateOrigami(data, onCalculationFinished)
           voxelData, dimension, dimension, dimension
         );
 
+        console.log(context.pages[0].links);
+
         context.strokeWidth = data.strokeWidth;
         context.strokeColor = data.strokeColor;
         context.tabColor = data.tabColor;
@@ -60,6 +62,8 @@ function calculateOrigami(data, onCalculationFinished)
         context.textures = textures;
         let template = Handlebars.compile(source);
         let html = template(context);
+
+
 
         onCalculationFinished(html);
       });
@@ -96,7 +100,13 @@ function registerHandlebarsHelper(Handlebars, blockIdList)
 
   Handlebars.registerHelper('texture', (type, metaType, normal) =>
   {
-    let textureObject = blockIdList[type][metaType];
+    if(!blockIdList[type])
+    {
+      console.warn("Block with id " + type + " not supported!");
+      return Handlebars.SafeString("");
+    }
+
+    let textureObject = (blockIdList[type][metaType]) ? blockIdList[type][metaType] : blockIdList[type]["*"];
     let texture;
 
     if(typeof textureObject === 'object')
@@ -124,7 +134,13 @@ function registerHandlebarsHelper(Handlebars, blockIdList)
 
   Handlebars.registerHelper('texturerotation', (type, metaType, normal) =>
   {
-    let textureObject = blockIdList[type][metaType];
+    if(!blockIdList[type])
+    {
+      console.warn("Block with id " + type + " not supported!");
+      return Handlebars.SafeString("");
+    }
+
+    let textureObject = (blockIdList[type][metaType]) ? blockIdList[type][metaType] : blockIdList[type]["*"];
     let texture;
 
     if(typeof textureObject === 'object')

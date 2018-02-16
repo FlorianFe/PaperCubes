@@ -10,9 +10,9 @@
 #include <iostream>
 
 std::vector<Tile> getTilesOfBlueprint(Blueprint blueprint, Matrix matrix, std::vector<OrthogamiFace*> orthogamiFaceVector, unsigned int BaseX, unsigned int baseY);
-std::vector<Link> getLinksOfBlueprint(Blueprint blueprint, std::map<unsigned int, unsigned int>* map, unsigned int* mapIndex, std::vector<OrthogamiFace*> orthogamiFaceVector, unsigned int baseX, unsigned int baseY);
+std::vector<Link> getLinksOfBlueprint(Blueprint blueprint, std::map<unsigned int, unsigned int>* map, unsigned int* mapIndex, std::vector<OrthogamiFace*> orthogamiFaceVector, std::vector<OrthogamiEdge*> orthogamiEdgeVector, unsigned int baseX, unsigned int baseY);
 
-std::vector<Page> calculatePages(std::vector<Blueprint*> blueprintVector, std::vector<OrthogamiFace*> orthogamiFaceVector, Matrix matrix, int tilesPerRow, int rowsPerPage)
+std::vector<Page> calculatePages(std::vector<Blueprint*> blueprintVector, std::vector<OrthogamiFace*> orthogamiFaceVector, std::vector<OrthogamiEdge*> orthogamiEdgeVector, Matrix matrix, int tilesPerRow, int rowsPerPage)
 {
     std::vector<Page> pagesVector;
     
@@ -53,7 +53,7 @@ std::vector<Page> calculatePages(std::vector<Blueprint*> blueprintVector, std::v
         std::vector<Tile> tilesOfBlueprint = getTilesOfBlueprint(*blueprint, matrix, orthogamiFaceVector, offsetWidthThisPage, offsetHeightThisPage);
         page.tiles.insert(page.tiles.end(), tilesOfBlueprint.begin(), tilesOfBlueprint.end());
         
-        std::vector<Link> linksOfBlueprint = getLinksOfBlueprint(*blueprint, &map, &mapIndex, orthogamiFaceVector, offsetWidthThisPage, offsetHeightThisPage);
+        std::vector<Link> linksOfBlueprint = getLinksOfBlueprint(*blueprint, &map, &mapIndex, orthogamiFaceVector, orthogamiEdgeVector, offsetWidthThisPage, offsetHeightThisPage);
         page.links.insert(page.links.end(), linksOfBlueprint.begin(), linksOfBlueprint.end());
         
         offsetWidthThisPage += blueprintWidth + 1;
@@ -104,7 +104,7 @@ std::vector<Tile> getTilesOfBlueprint(Blueprint blueprint, Matrix matrix, std::v
     return tiles;
 }
 
-std::vector<Link> getLinksOfBlueprint(Blueprint blueprint, std::map<unsigned int, unsigned int>* map, unsigned int* mapIndex, std::vector<OrthogamiFace*> orthogamiFaceVector, unsigned int baseX, unsigned int baseY)
+std::vector<Link> getLinksOfBlueprint(Blueprint blueprint, std::map<unsigned int, unsigned int>* map, unsigned int* mapIndex, std::vector<OrthogamiFace*> orthogamiFaceVector, std::vector<OrthogamiEdge*> orthogamiEdgeVector, unsigned int baseX, unsigned int baseY)
 {
     std::vector<Link> links;
     
@@ -122,14 +122,15 @@ std::vector<Link> getLinksOfBlueprint(Blueprint blueprint, std::map<unsigned int
         {
             if(x == 0)
             {
+                OrthogamiFace* orthogamiFace = orthogamiFaceVector.at(orthogamiFaceIndices[j]);
+                unsigned int edgeIndex = orthogamiFace->getWestEdge();
+                
                 Link link;
                 link.x = x + baseX;
                 link.y = y + baseY + 1;
                 link.orientationX = -1;
                 link.orientationY = 0;
-                
-                OrthogamiFace* orthogamiFace = orthogamiFaceVector.at(orthogamiFaceIndices[j]);
-                unsigned int edgeIndex = orthogamiFace->getWestEdge();
+                link.concarve = orthogamiEdgeVector.at(edgeIndex)->isConcarve();
                 
                 if(map->count(edgeIndex) == 0)
                 {
@@ -149,13 +150,15 @@ std::vector<Link> getLinksOfBlueprint(Blueprint blueprint, std::map<unsigned int
             
             if(y == 0)
             {
+                OrthogamiFace* orthogamiFace = orthogamiFaceVector.at(orthogamiFaceIndices[j]);
+                unsigned int edgeIndex = orthogamiFace->getSouthEdge();
+                
                 Link link;
                 link.x = x + baseX + 1;
                 link.y = y + baseY;
                 link.orientationX = 0;
                 link.orientationY = -1;
-                
-                unsigned int edgeIndex = orthogamiFaceVector.at(orthogamiFaceIndices[j])->getSouthEdge();
+                link.concarve = orthogamiEdgeVector.at(edgeIndex)->isConcarve();
                 
                 if(map->count(edgeIndex) == 0)
                 {
@@ -175,13 +178,15 @@ std::vector<Link> getLinksOfBlueprint(Blueprint blueprint, std::map<unsigned int
             
             if(x == blueprintWidth - 1)
             {
+                OrthogamiFace* orthogamiFace = orthogamiFaceVector.at(orthogamiFaceIndices[j]);
+                unsigned int edgeIndex = orthogamiFace->getEastEdge();
+                
                 Link link;
                 link.x = x + baseX + 2;
                 link.y = y + baseY + 1;
                 link.orientationX = 1;
                 link.orientationY = 0;
-                
-                unsigned int edgeIndex = orthogamiFaceVector.at(orthogamiFaceIndices[j])->getEastEdge();
+                link.concarve = orthogamiEdgeVector.at(edgeIndex)->isConcarve();
                 
                 if(map->count(edgeIndex) == 0)
                 {
@@ -201,13 +206,15 @@ std::vector<Link> getLinksOfBlueprint(Blueprint blueprint, std::map<unsigned int
             
             if(y == blueprintHeight - 1)
             {
+                OrthogamiFace* orthogamiFace = orthogamiFaceVector.at(orthogamiFaceIndices[j]);
+                unsigned int edgeIndex = orthogamiFace->getNorthEdge();
+                
                 Link link;
                 link.x = x + baseX + 1;
                 link.y = y + baseY + 2;
                 link.orientationX = 0;
                 link.orientationY = 1;
-                
-                unsigned int edgeIndex = orthogamiFaceVector.at(orthogamiFaceIndices[j])->getNorthEdge();
+                link.concarve = orthogamiEdgeVector.at(edgeIndex)->isConcarve();
                 
                 if(map->count(edgeIndex) == 0)
                 {
@@ -231,13 +238,15 @@ std::vector<Link> getLinksOfBlueprint(Blueprint blueprint, std::map<unsigned int
             {
                 if(orthogamiFaceIndices[j-1] >= 0)
                 {
+                    OrthogamiFace* orthogamiFace = orthogamiFaceVector.at(orthogamiFaceIndices[j-1]);
+                    unsigned int edgeIndex = orthogamiFace->getEastEdge();
+                    
                     Link link;
                     link.x = x + baseX + 1;
                     link.y = y + baseY + 1;
                     link.orientationX = 1;
                     link.orientationY = 0;
-                    
-                    unsigned int edgeIndex = orthogamiFaceVector.at(orthogamiFaceIndices[j-1])->getEastEdge();
+                    link.concarve = orthogamiEdgeVector.at(edgeIndex)->isConcarve();
                     
                     if(map->count(edgeIndex) == 0)
                     {
@@ -260,13 +269,15 @@ std::vector<Link> getLinksOfBlueprint(Blueprint blueprint, std::map<unsigned int
             {
                 if(orthogamiFaceIndices[j+1] >= 0)
                 {
+                    OrthogamiFace* orthogamiFace = orthogamiFaceVector.at(orthogamiFaceIndices[j+1]);
+                    unsigned int edgeIndex = orthogamiFace->getWestEdge();
+                    
                     Link link;
                     link.x = x + baseX + 1;
                     link.y = y + baseY + 1;
                     link.orientationX = -1;
                     link.orientationY = 0;
-                    
-                    unsigned int edgeIndex = orthogamiFaceVector.at(orthogamiFaceIndices[j+1])->getWestEdge();
+                    link.concarve = orthogamiEdgeVector.at(edgeIndex)->isConcarve();
                     
                     if(map->count(edgeIndex) == 0)
                     {
@@ -289,13 +300,15 @@ std::vector<Link> getLinksOfBlueprint(Blueprint blueprint, std::map<unsigned int
             {
                 if(orthogamiFaceIndices[j-blueprintWidth] >= 0)
                 {
+                    OrthogamiFace* orthogamiFace = orthogamiFaceVector.at(orthogamiFaceIndices[j-blueprintWidth]);
+                    unsigned int edgeIndex = orthogamiFace->getNorthEdge();
+                    
                     Link link;
                     link.x = x + baseX + 1;
                     link.y = y + baseY + 1;
                     link.orientationX = 0;
                     link.orientationY = 1;
-                    
-                    unsigned int edgeIndex = orthogamiFaceVector.at(orthogamiFaceIndices[j-blueprintWidth])->getNorthEdge();
+                    link.concarve = orthogamiEdgeVector.at(edgeIndex)->isConcarve();
                     
                     if(map->count(edgeIndex) == 0)
                     {
@@ -318,13 +331,15 @@ std::vector<Link> getLinksOfBlueprint(Blueprint blueprint, std::map<unsigned int
             {
                 if(orthogamiFaceIndices[j+blueprintWidth] >= 0)
                 {
+                    OrthogamiFace* orthogamiFace = orthogamiFaceVector.at(orthogamiFaceIndices[j+blueprintWidth]);
+                    unsigned int edgeIndex = orthogamiFace->getSouthEdge();
+                    
                     Link link;
                     link.x = x + baseX + 1;
                     link.y = y + baseY + 1;
                     link.orientationX = 0;
                     link.orientationY = -1;
-                    
-                    unsigned int edgeIndex = orthogamiFaceVector.at(orthogamiFaceIndices[j+blueprintWidth])->getSouthEdge();
+                    link.concarve = orthogamiEdgeVector.at(edgeIndex)->isConcarve();
                     
                     if(map->count(edgeIndex) == 0)
                     {
