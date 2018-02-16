@@ -132,10 +132,10 @@ std::vector<Face>& extractFacesFromMatrix(Matrix& matrix)
                     
                     Vector normal = Vector(0, 1, 0);
                     
-                    Edge northEdge(vertex1, vertex2);
-                    Edge eastEdge(vertex2, vertex3);
-                    Edge southEdge(vertex3, vertex4);
-                    Edge westEdge(vertex4, vertex1);
+                    Edge southEdge(vertex1, vertex2);
+                    Edge westEdge(vertex2, vertex3);
+                    Edge northEdge(vertex3, vertex4);
+                    Edge eastEdge(vertex4, vertex1);
                     
                     Face face = Face(blockCoordinates, northEdge, eastEdge, southEdge, westEdge, normal);
                     
