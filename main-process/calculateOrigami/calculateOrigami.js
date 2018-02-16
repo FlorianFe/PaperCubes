@@ -96,26 +96,58 @@ function registerHandlebarsHelper(Handlebars, blockIdList)
 
   Handlebars.registerHelper('texture', (type, metaType, normal) =>
   {
-    let texture = blockIdList[type][metaType];
+    let textureObject = blockIdList[type][metaType];
+    let texture;
 
-    if(typeof texture === 'object')
+    if(typeof textureObject === 'object')
     {
-      let orientation = "side";
+      let orientation = "none";
 
-      if(normal.y == 1)
-      {
-        orientation = "top";
-      }
+      if(normal.z == -1) orientation = "north";
+      if(normal.x == 1) orientation = "east";
+      if(normal.z == 1) orientation = "south";
+      if(normal.x == -1) orientation = "west";
+      if(normal.y == 1) orientation = "top";
+      if(normal.y == -1) orientation = "bottom";
 
-      if(normal.y == -1)
-      {
-        orientation = "bottom";
-      }
-
-      texture = texture[orientation];
+      texture = (textureObject[orientation]) ? textureObject[orientation] : textureObject["*"];
+    }
+    else
+    {
+      texture = textureObject;
     }
 
-    return new Handlebars.SafeString(texture);
+    let textureName = texture.split(":")[0];
+
+    return new Handlebars.SafeString(textureName);
+  });
+
+  Handlebars.registerHelper('texturerotation', (type, metaType, normal) =>
+  {
+    let textureObject = blockIdList[type][metaType];
+    let texture;
+
+    if(typeof textureObject === 'object')
+    {
+      let orientation = "none";
+
+      if(normal.z == -1) orientation = "north";
+      if(normal.x == 1) orientation = "east";
+      if(normal.z == 1) orientation = "south";
+      if(normal.x == -1) orientation = "west";
+      if(normal.y == 1) orientation = "top";
+      if(normal.y == -1) orientation = "bottom";
+
+      texture = (textureObject[orientation]) ? textureObject[orientation] : textureObject["*"];
+    }
+    else
+    {
+      texture = textureObject;
+    }
+
+    let textureArray = texture.split(":");
+
+    return (textureArray.length <= 1) ? 0 : textureArray[1];
   });
 }
 

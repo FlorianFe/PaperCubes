@@ -5,6 +5,7 @@
 <svg width="100%" viewBox="0 0 {{../pageWidth}} {{../pageHeight}}">
   {{#each tiles}}
     <path
+      transform="rotate({{texturerotation type metaType normal}}deg, 50%, 50%)"
       fill="url(#{{texture type metaType normal}})"
       d="M {{mul x ../../size}} {{mul y ../../size}} L {{mul x ../../size}} {{add (mul y ../../size) ../../size}} L {{add (mul x ../../size) ../../size}} {{add (mul y ../../size) ../../size}} L {{add (mul x ../../size) ../../size}} {{mul y ../../size}}"
     />
