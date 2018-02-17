@@ -30,7 +30,7 @@ std::vector<Page> calculatePages(std::vector<Blueprint*> blueprintVector, std::v
         int blueprintWidth = blueprint->getWidth();
         int blueprintHeight = blueprint->getHeight();
         
-        std::cout << "Offset height: " << offsetHeightThisPage << " rowsPerPage: " << rowsPerPage << " blueprint height:  " << blueprintHeight << std::endl;
+        //std::cout << "Offset height: " << offsetHeightThisPage << " rowsPerPage: " << rowsPerPage << " blueprint height:  " << blueprintHeight << std::endl;
         
         if(blueprintHeight + greatestHeightThisRow + 2 > rowsPerPage - offsetHeightThisPage)
         {
@@ -63,7 +63,7 @@ std::vector<Page> calculatePages(std::vector<Blueprint*> blueprintVector, std::v
             greatestHeightThisRow = blueprintHeight;
         }
         
-        std::cout << "Offset width: " << offsetWidthThisPage << " tilesPerRow: " << tilesPerRow << " blueprintWidth: " << blueprintWidth << std::endl;
+        // std::cout << "Offset width: " << offsetWidthThisPage << " tilesPerRow: " << tilesPerRow << " blueprintWidth: " << blueprintWidth << std::endl;
     }
     
     pagesVector.push_back(page);

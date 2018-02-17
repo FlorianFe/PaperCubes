@@ -13,61 +13,45 @@ class OrigamiBlueprint extends Polymer.Element
     return {
       minecraftSchematicPath: String,
       texturePackUploadPath: String,
-      texturePackPath: String,
-      boundsX: Number,
-      boundsY: Number,
-      scale: Number,
-      lineWidth: Number,
-
-      tabColor: String,
-      strokeColor: String,
-      concaveLineColor: String,
-      convexLineColor: String,
+      texturePackPath: String
     }
   }
 
   connectedCallback()
   {
     super.connectedCallback();
+  }
 
-    console.log("connected");
+  exportToPDF()
+  {
+    const {dialog} = require('electron').remote;
 
-    this.$["drop-blueprint"].addEventListener("click", () =>
+    dialog.showSaveDialog(undefined,
     {
-      this.dispatchEvent(new CustomEvent('drop-blueprint', {}));
-    });
-
-    this.$["export-to-pdf-button"].addEventListener("click", () =>
+      title: "Export PDF",
+      defaultPath: '~/origami.pdf'
+    },
+    (filename) =>
     {
-      const {dialog} = require('electron').remote;
+      if(filename != undefined)
+      {
+        let browserWindow = require('electron').remote.getCurrentWindow();
 
-      dialog.showSaveDialog(undefined,
-      {
-        title: "Export PDF",
-        defaultPath: '~/origami.pdf'
-      },
-      (filename) =>
-      {
-        if(filename != undefined)
+        browserWindow.webContents.printToPDF({ pageSize: "A4" }, (err, data) =>
         {
-          let browserWindow = require('electron').remote.getCurrentWindow();
-
-          browserWindow.webContents.printToPDF({ pageSize: "A4" }, (err, data) =>
+          fs.writeFile(filename, data, function(err)
           {
-            fs.writeFile(filename, data, function(err)
+            if(err)
             {
-              if(err)
-              {
-                throw new Error("Printing PDF failed")
-              }
-              else
-              {
-                console.log("printing success!");
-              }
-            });
+              throw new Error("Printing PDF failed")
+            }
+            else
+            {
+              console.log("printing success!");
+            }
           });
-        }
-      });
+        });
+      }
     });
   }
 
@@ -91,8 +75,6 @@ class OrigamiBlueprint extends Polymer.Element
       unzip.Extract({ path: texturePackPath })
       .on('close', () =>
       {
-        this.$["iron-list"].innerHTML = "";
-
         const {ipcRenderer} = require('electron');
 
         console.log("EZ; ", this.schematicData, this.texturePackPath);
@@ -100,22 +82,14 @@ class OrigamiBlueprint extends Polymer.Element
         ipcRenderer.send('startSchematicToOrigamiCalculation',
         {
           minecraftSchematicPath: this.minecraftSchematicPath,
-          texturePackPath: this.texturePackPath,
-          boundsX: this.boundsX,
-          boundsY: this.boundsY,
-          scale: this.scale,
-          strokeWidth: this.lineWidth,
-          tabColor: this.tabColor,
-          strokeColor: this.strokeColor,
-          concaveLineColor: this.concaveLineColor,
-          convexLineColor: this.convexLineColor,
+          texturePackPath: this.texturePackPath
         });
 
         ipcRenderer.on('schematicToOrigamiCalulationFinished', (event, data) =>
         {
           let html = data.html;
 
-          this.$["iron-list"].innerHTML = html;
+          this.$["result-container"].innerHTML = html;
           document.getElementById("printing-container").innerHTML = html;
 
           this.dispatchEvent(new CustomEvent('calculation-finished', {}));

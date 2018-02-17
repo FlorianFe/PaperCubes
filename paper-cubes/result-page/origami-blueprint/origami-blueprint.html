@@ -7,7 +7,6 @@
 <link rel="import" href="../../../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../../../bower_components/paper-progress/paper-progress.html">
 <link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../../../bower_components/iron-list/iron-list.html">
 <link rel="import" href="../../../bower_components/paper-fab/paper-fab.html">
 
 <!-- Defines element markup -->
@@ -32,19 +31,6 @@
           height: 100%;
         }
 
-        #drop-blueprint
-        {
-          color: #000;
-          --paper-fab-background: #fff;
-          --paper-fab-keyboard-focus-background: #ddd;
-        }
-
-        #export-to-pdf-button
-        {
-          --paper-fab-background: var(--primary-color);
-          --paper-fab-keyboard-focus-background: var(--primary-color);
-        }
-
         #result-container
         {
           overflow-x: scroll;
@@ -53,30 +39,33 @@
           height: inherit;
         }
 
-        #actions-container
+        .concarve
         {
-          position: fixed;
-          right: 0;
-          bottom: 0;
-          margin: 25px;
+          fill: var(--concarve-color);
+        }
+
+        .convex
+        {
+          fill: var(--convex-color);
+        }
+
+        .tab
+        {
+          stroke: black;
+        }
+
+        .void-room
+        {
+          stroke: black;
+          fill: white;
         }
 
       </style>
     </custom-style>
 
-    <div hidden$="[[not(calculationFinished)]]">
-      <div id="actions-container">
-        <paper-fab id="drop-blueprint" icon="delete"></paper-fab>
-        <br>
-        <paper-fab id="export-to-pdf-button" icon="save"></paper-fab>
-      </div>
-      <div id="result-container">
-        <div id="iron-list">
-          <!-- svg-nodes -->
-        </div>
-      </div>
+    <div id="result-container">
+      <!-- svg-nodes -->
     </div>
-
 
   </template>
 

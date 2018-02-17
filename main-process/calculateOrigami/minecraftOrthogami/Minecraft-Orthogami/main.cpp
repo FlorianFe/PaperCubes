@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <vector>
+#include <math.h>
 #include "Matrix.h"
 #include "Face.h"
 #include "Edge.h"
@@ -13,56 +14,73 @@
 #include "extractOrthogamiFaces.hpp"
 #include "calculatePages.hpp"
 
-std::vector<Blueprint*> orthogami(Matrix& matrix);
-/*
-   int main(int argc, const char * argv[])
-    
-    Matrix matrix = Matrix(data, 39, 30, 7);
-    
-    orthogami(matrix);
-    
-    std::cout << std::endl;
-    (tests::testVector()) ? std::cout << "✔️" : std::cout << "❌";
-    (tests::testEdge()) ? std::cout << "✔️" : std::cout << "❌";
-    (tests::testFace()) ? std::cout << "✔️" : std::cout << "❌";
-    std::cout << std::endl;
-    
-    return 0;
-}
-
-std::vector<Blueprint*> orthogami(Matrix& matrix)
+unsigned int getWidestBlueprintWidth(std::vector<Blueprint*> blueprintVector)
 {
-    // Step 1: Prepare Matrix for Orthogami
-    Matrix preparedMatrix = prepareMatrix(matrix);
+    unsigned int maxWidth = 1;
     
-    // Step 2: Extract Orthogami Faces from prepared Matrix
-    std::vector<OrthogamiFace*> orthogamiFaceVector = extractOrthogamiFaces(preparedMatrix);
-    
-    // Step 3: Extract Orthogami Egdes from prepared Matrix
-    std::vector<OrthogamiEdge*> orthogamiEdgeVector = extractOrthogamiEdges(preparedMatrix);
-    
-    // Step 4: Extract Blueprints from prepared Matrix and Orthogami Faces
-    std::vector<Blueprint*> blueprintVector = extractBlueprintVectorFromOrthogamiFaceVector(orthogamiFaceVector, orthogamiEdgeVector, preparedMatrix);
-    
-    // Step 5: Calculate Pages
-    std::vector<Page> pages = calculatePages(blueprintVector, orthogamiFaceVector, preparedMatrix, 10, 16);
-    
-    // Print data
-    for(int i=0; i<blueprintVector.size(); i++)
+    for(std::vector<Blueprint*>::iterator iterator = blueprintVector.begin(); iterator != blueprintVector.end(); ++iterator)
     {
-        Blueprint* blueprint = blueprintVector.at(i);
+        unsigned int width = (*iterator)->getWidth();
         
-        int* data = blueprint->get2DArray();
-        
-        for(int j=0; j<blueprint->getWidth() * blueprint->getHeight(); j++)
-        {
-            std::cout << j << " " << data[j] << std::endl;
-        }
+        if(width > maxWidth) maxWidth = width;
     }
     
-    return blueprintVector;
+    return maxWidth;
 }
-*/
+
+unsigned int getHighestBlueprintHeight(std::vector<Blueprint*> blueprintVector)
+{
+    unsigned int maxHeight = 1;
+    
+    for(std::vector<Blueprint*>::iterator iterator = blueprintVector.begin(); iterator != blueprintVector.end(); ++iterator)
+    {
+        unsigned int height = (*iterator)->getHeight();
+        
+        if(height > maxHeight) maxHeight = height;
+    }
+    
+    return maxHeight;
+}
+
+unsigned int getTilesPerRow(std::vector<Blueprint*> blueprintVector)
+{
+    unsigned int widestBlueprintWidth = getWidestBlueprintWidth(blueprintVector);
+    unsigned int highestBlueprintHeight = getHighestBlueprintHeight(blueprintVector);
+    
+    unsigned int tilesPerRow;
+    
+    if(sqrt(2) * widestBlueprintWidth < highestBlueprintHeight)
+    {
+        tilesPerRow =  floor(highestBlueprintHeight / sqrt(2)) + 1;
+    }
+    else
+    {
+        tilesPerRow = widestBlueprintWidth;
+    }
+    
+    return tilesPerRow;
+}
+
+unsigned int getRowsPerPage(std::vector<Blueprint*> blueprintVector)
+{
+    unsigned int widestBlueprintWidth = getWidestBlueprintWidth(blueprintVector);
+    unsigned int highestBlueprintHeight = getHighestBlueprintHeight(blueprintVector);
+    
+    unsigned int rowsPerPage;
+    
+    if(sqrt(2) * widestBlueprintWidth < highestBlueprintHeight)
+    {
+        rowsPerPage = highestBlueprintHeight;
+    }
+    else
+    {
+        rowsPerPage = floor(widestBlueprintWidth * sqrt(2));
+    }
+    
+    return rowsPerPage;
+}
+
+// === NODE JS === //
 
 #include <node.h>
 
@@ -80,12 +98,8 @@ using namespace v8;
 void orthogami(const FunctionCallbackInfo<Value>& args)
 {
     Isolate* isolate = args.GetIsolate();
-
-    int pageWidth = (int)(args[0]->NumberValue());
-    int pageHeight = (int)(args[1]->NumberValue());
-    int tileSize = (int)(args[2]->NumberValue());
     
-    Local<Array> node_matrix = Local<Array>::Cast(args[3]);
+    Local<Array> node_matrix = Local<Array>::Cast(args[0]);
     int node_matrixLength = node_matrix->Length();
     Block* data = new Block[node_matrixLength];
     
@@ -100,12 +114,9 @@ void orthogami(const FunctionCallbackInfo<Value>& args)
         data[i].metaType = metaType;
     }
     
-    int matrixWidth = (int)(args[4]->NumberValue());
-    int matrixHeight = (int)(args[5]->NumberValue());
-    int matrixDepth = (int)(args[6]->NumberValue());
-    
-    int tilesPerRow = pageWidth / tileSize;
-    int rowsPerPage = pageHeight / tileSize;
+    int matrixWidth = (int)(args[1]->NumberValue());
+    int matrixHeight = (int)(args[2]->NumberValue());
+    int matrixDepth = (int)(args[3]->NumberValue());
     
     Matrix matrix = Matrix(data, matrixWidth, matrixHeight, matrixDepth);
 
@@ -123,11 +134,18 @@ void orthogami(const FunctionCallbackInfo<Value>& args)
          // Step 4: Extract Blueprints from prepared Matrix and Orthogami Faces
          std::vector<Blueprint*> blueprintVector = extractBlueprintVectorFromOrthogamiFaceVector(orthogamiFaceVector, orthogamiEdgeVector, preparedMatrix);
  
+        // Step 4.2: calculate tilesPerRow and rowsPerPage
+        unsigned int tilesPerRow = getTilesPerRow(blueprintVector);
+        unsigned int rowsPerPage = getRowsPerPage(blueprintVector);
+        
          // Step 5: Calculate Pages
          std::vector<Page> pages = calculatePages(blueprintVector, orthogamiFaceVector, orthogamiEdgeVector, preparedMatrix, tilesPerRow, rowsPerPage);
  
          // blueprint: { ... }
          Local<Object> node_blueprint = Object::New(isolate);
+        
+        node_blueprint->Set(String::NewFromUtf8(isolate, "width"), Integer::New(isolate, tilesPerRow));
+        node_blueprint->Set(String::NewFromUtf8(isolate, "height"), Integer::New(isolate, rowsPerPage));
  
         // pages: [ ... ]
         Local<Array> node_pages = Array::New(isolate, pages.size());

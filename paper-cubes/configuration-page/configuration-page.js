@@ -9,54 +9,6 @@ class ConfigurationPage extends Polymer.Element
   static get properties()
   {
     return {
-      pageWidth:
-      {
-        type: Number,
-        value: 2480,
-        notify: true
-      },
-      pageHeight:
-      {
-        type: Number,
-        value: 3508,
-        notify: true
-      },
-      tileSize:
-      {
-        type: Number,
-        value: 128,
-        notify: true
-      },
-      lineWidth:
-      {
-        type: Number,
-        value: 1,
-        notify: true
-      },
-      tabColor:
-      {
-        type: String,
-        value: "#ddd",
-        notify: true
-      },
-      strokeColor:
-      {
-        type: String,
-        value: "#000",
-        notify: true
-      },
-      concaveLineColor:
-      {
-        type: String,
-        value: "#ddd",
-        notify: true
-      },
-      convexLineColor:
-      {
-        type: String,
-        value: "#000",
-        notify: true
-      },
       texturePackUploadPath:
       {
         type: String,

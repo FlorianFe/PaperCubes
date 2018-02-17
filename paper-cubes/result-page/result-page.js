@@ -9,42 +9,9 @@ class ResultPage extends Polymer.Element
   static get properties()
   {
     return {
-      pageWidth:
-      {
-        type: Number
-      },
-      pageHeight:
-      {
-        type: Number
-      },
-      tileSize:
-      {
-        type: Number
-      },
-      lineWidth:
-      {
-        type: Number
-      },
-
       minecraftSchematicPath: String,
       minecraftTexturePackData: String,
 
-      tabColor:
-      {
-        type: String
-      },
-      strokeColor:
-      {
-        type: String
-      },
-      concaveLineColor:
-      {
-        type: String
-      },
-      convexLineColor:
-      {
-        type: String
-      },
       texturePackUploadPath:
       {
         type: String
@@ -61,9 +28,14 @@ class ResultPage extends Polymer.Element
   {
     super.connectedCallback();
 
-    this.$["origami-blueprint"].addEventListener("drop-blueprint", () =>
+    this.$["drop-blueprint"].addEventListener("click", () =>
     {
       this.dispatchEvent(new CustomEvent('drop-blueprint', {}));
+    });
+
+    this.$["export-to-pdf-button"].addEventListener("click", () =>
+    {
+      this.$["origami-blueprint"].exportToPDF();
     });
 
     this.$["origami-blueprint"].addEventListener('calculation-finished', () =>

@@ -1,62 +1,61 @@
 
 
-
 {{#each pages}}
-<svg width="100%" viewBox="0 0 {{../pageWidth}} {{../pageHeight}}">
+<svg width="100%" viewBox="0 0 {{add ../width 2}} {{add ../height 2}}">
   {{#each tiles}}
     <path
-      transform="translate({{mul (add x 0.5) ../../size}}, {{mul (add y 0.5) ../../size}}) rotate({{texturerotation type metaType normal}}) translate(-{{mul (add x 0.5) ../../size}}, -{{mul (add y 0.5) ../../size}})"
+      transform="translate({{mul (add x 0.5) 1}}, {{mul (add y 0.5) 1}}) rotate({{texturerotation type metaType normal}}) translate(-{{mul (add x 0.5) 1}}, -{{mul (add y 0.5) 1}})"
       fill="url(#{{texture type metaType normal}})"
-      d="M {{mul x ../../size}} {{mul y ../../size}} L {{mul x ../../size}} {{add (mul y ../../size) ../../size}} L {{add (mul x ../../size) ../../size}} {{add (mul y ../../size) ../../size}} L {{add (mul x ../../size) ../../size}} {{mul y ../../size}}"
+      d="M {{mul x 1}} {{mul y 1}} L {{mul x 1}} {{add (mul y 1) 1}} L {{add (mul x 1) 1}} {{add (mul y 1) 1}} L {{add (mul x 1) 1}} {{mul y 1}}"
     />
   {{/each}}
 
   {{#each links}}
     <g
-      transform="translate({{mul (add x 0.5) ../../size}}, {{mul (add y 0.5) ../../size}}) rotate({{rotation orientation}})"
-      fill="{{../../tabColor}}"
-      stroke-width="{{../../strokeWidth}}"
+      transform="translate({{mul (add x 0.5) 1}}, {{mul (add y 0.5) 1}}) rotate({{rotation orientation}})">
     >
       {{#if opened}}
       <path
-        stroke="{{../../strokeColor}}"
-        stroke-dasharray="{{mul 2 ../../strokeWidth}},{{mul 2 ../../strokeWidth}}"
-        d="M {{mul -0.5 ../../size}} {{mul -0.5 ../../size}} L {{mul -0.4 ../../size}} {{mul -0.5 ../../size}} L {{mul -0.3 ../../size}} {{mul -0.3 ../../size}} L {{mul 0.3 ../../size}} {{mul -0.3 ../../size}} L {{mul 0.4 ../../size}} {{mul -0.5 ../../size}} L {{mul 0.5 ../../size}} {{mul -0.5 ../../size}}"
+        class="tab {{#if concarve}}concarve{{else}}convex{{/if}}"
+        stroke-width="0.005"
+        stroke-dasharray="{{mul 2 0.02}},{{mul 2 0.02}}"
+        d="M {{mul -0.5 1}} {{mul -0.5 1}} L {{mul -0.4 1}} {{mul -0.5 1}} L {{mul -0.3 1}} {{mul -0.3 1}} L {{mul 0.3 1}} {{mul -0.3 1}} L {{mul 0.4 1}} {{mul -0.5 1}} L {{mul 0.5 1}} {{mul -0.5 1}}"
       />
 
       <path
-        fill="white"
-        stroke="{{../../strokeColor}}"
-        stroke-dasharray="{{mul 2 ../../strokeWidth}},{{mul 2 ../../strokeWidth}}"
-        d="M {{mul 0.25 ../../size}} {{mul -0.5 ../../size}} L {{mul 0.2 ../../size}} {{mul -0.45 ../../size}} L {{mul -0.2 ../../size}} {{mul -0.45 ../../size}} L {{mul -0.25 ../../size}} {{mul -0.5 ../../size}} Z"
+        class="void-room"
+        stroke-width="0.005"
+        stroke-dasharray="{{mul 2 0.02}},{{mul 2 0.02}}"
+        d="M {{mul 0.25 1}} {{mul -0.5 1}} L {{mul 0.2 1}} {{mul -0.45 1}} L {{mul -0.2 1}} {{mul -0.45 1}} L {{mul -0.25 1}} {{mul -0.5 1}} Z"
       />
 
       <text
         transform="rotate(180)"
-        font-size="{{mul 10 (div ../../size 128) }}"
+        font-size="0.075"
         fill="black"
         font-family="Verdana"
         text-anchor="middle"
         alignment-baseline="baseline"
         x="0"
-        y="{{mul 0.4 ../../size}}"
+        y="0.4"
       >
       {{else}}
       <path
-        stroke="{{../../strokeColor}}"
-        stroke-dasharray="{{mul 2 ../../strokeWidth}},{{mul 2 ../../strokeWidth}}"
-        d="M {{mul -0.5 ../../size}} {{mul -0.5 ../../size}} L {{mul -0.25 ../../size}} {{mul -0.5 ../../size}} L {{mul -0.2 ../../size}} {{mul -0.2 ../../size}} L {{mul 0.2 ../../size}} {{mul -0.2 ../../size}} L {{mul 0.25 ../../size}} {{mul -0.5 ../../size}} L {{mul 0.5 ../../size}} {{mul -0.5 ../../size}}"
+        class="tab {{#if concarve}}concarve{{else}}convex{{/if}}"
+        stroke-width="0.005"
+        stroke-dasharray="{{mul 2 0.02}},{{mul 2 0.02}}"
+        d="M {{mul -0.5 1}} {{mul -0.5 1}} L {{mul -0.25 1}} {{mul -0.5 1}} L {{mul -0.2 1}} {{mul -0.2 1}} L {{mul 0.2 1}} {{mul -0.2 1}} L {{mul 0.25 1}} {{mul -0.5 1}} L {{mul 0.5 1}} {{mul -0.5 1}}"
       />
 
       <text
         transform="rotate(180)"
-        font-size="{{mul 10 (div ../../size 128) }}"
+        font-size="0.075"
         fill="black"
         font-family="Verdana"
         text-anchor="middle"
         alignment-baseline="baseline"
         x="0"
-        y="{{mul 0.35 ../../size}}"
+        y="{{mul 0.35 1}}"
       >
       {{/if}}
 
@@ -78,7 +77,7 @@
     {{#each textures}}
     <pattern id="{{this}}" x="0" y="0" width="1" height="1">
       <image
-        x="0" y="0" width="{{../size}}" height="{{../size}}"
+        x="0" y="0" width="1" height="1" preserveAspectRatio="xMinYMin slice"
         xlink:href="{{../texturePath}}/{{this}}.png"
       ></image>
     </pattern>

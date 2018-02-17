@@ -16,23 +16,45 @@
       display: block;
       width: 100%;
       height: 100%;
+
+      --convex-color: #bbb;
+      --concarve-color: #eee;
     }
 
+    #actions-container
+    {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      margin: 25px;
+    }
+
+    #drop-blueprint
+    {
+      color: #000;
+      --paper-fab-background: #fff;
+      --paper-fab-keyboard-focus-background: #ddd;
+    }
+
+    #export-to-pdf-button
+    {
+      --paper-fab-background: var(--primary-color);
+      --paper-fab-keyboard-focus-background: var(--primary-color);
+    }
+
+
     </style>
+
+    <div id="actions-container">
+      <paper-fab id="drop-blueprint" icon="delete"></paper-fab>
+      <br>
+      <paper-fab id="export-to-pdf-button" icon="save"></paper-fab>
+    </div>
 
     <origami-blueprint
       id="origami-blueprint"
       minecraft-schematic-path="[[minecraftSchematicPath]]"
       texture-pack-upload-path="[[texturePackUploadPath]]"
-      bounds-x="[[pageWidth]]"
-      bounds-y="[[pageHeight]]"
-      scale="[[tileSize]]"
-      line-width="[[lineWidth]]"
-
-      tab-color="[[tabColor]]"
-      stroke-color="[[strokeColor]]"
-      concave-line-color="[[concaveLineColor]]"
-      convex-line-color="[[convexLineColor]]"
     ></origami-blueprint>
   </template>
 

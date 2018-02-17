@@ -24,8 +24,6 @@ function calculateOrigami(data, onCalculationFinished)
 
       parseSchematicFile(data.minecraftSchematicPath, (schema) =>
       {
-        console.log(schema.width, schema.height, schema.length);
-
         let dimension = Math.max(schema.width, schema.height, schema.length);
         let voxelData = Array(dimension * dimension * dimension).fill({type: 0, metaType: 0});
 
@@ -46,24 +44,14 @@ function calculateOrigami(data, onCalculationFinished)
         }
 
         let context = m2o.orthogami(
-          data.boundsX, data.boundsY, data.scale,
           voxelData, dimension, dimension, dimension
         );
 
-        console.log(context.pages[0].links);
-
-        context.strokeWidth = data.strokeWidth;
-        context.strokeColor = data.strokeColor;
-        context.tabColor = data.tabColor;
-        context.pageWidth = data.boundsX;
-        context.pageHeight = data.boundsY;
-        context.size = data.scale;
         context.texturePath = path.join(data.texturePackPath, "assets/minecraft/textures/blocks");
         context.textures = textures;
+
         let template = Handlebars.compile(source);
         let html = template(context);
-
-
 
         onCalculationFinished(html);
       });
@@ -85,7 +73,7 @@ function registerHandlebarsHelper(Handlebars, blockIdList)
 
   Handlebars.registerHelper('div', (a, b) =>
   {
-    return new Handlebars.SafeString(parseInt(parseInt(a) / parseInt(b)));
+    return new Handlebars.SafeString(parseFloat(a) / parseFloat(b));
   });
 
   Handlebars.registerHelper('rotation', (a) =>
@@ -178,8 +166,6 @@ function parseSchematicFile(fileName, onCalculationFinished)
   nbt.parse(data, (error, data) =>
   {
     if (error) { throw error; }
-
-    console.log("blocks", data.value.Blocks.value);
 
     schematic.width = data.value.Width.value;
     schematic.height = data.value.Height.value;

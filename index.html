@@ -22,6 +22,9 @@
       --primary-color: #8bc34a;
       --light-primary-color: #cddc39;
       --dark-primary-color: #4caf50;
+
+      --convex-color: #bbb;
+      --concarve-color: #eee;
     }
 
     body
@@ -38,10 +41,10 @@
     {
       #printing-container
       {
-        display: block
+        display: block;
       }
 
-      mc-origami
+      paper-cubes
       {
         display: none;
       }
@@ -53,9 +56,30 @@
       }
     }
 
+    .concarve
+    {
+      fill: var(--concarve-color);
+    }
+
+    .convex
+    {
+      fill: var(--convex-color);
+    }
+
+    .tab
+    {
+      stroke: black;
+    }
+
+    .void-room
+    {
+      stroke: black;
+      fill: white;
+    }
+
     </style>
 
-    <paper-cubes><paper-cubes>
+    <paper-cubes></paper-cubes>
     <div id="printing-container">Printing...</div>
   </body>
 </html>

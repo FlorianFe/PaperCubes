@@ -34,8 +34,8 @@ std::vector<Blueprint*> extractBlueprintVectorFromOrthogamiFaceVector(std::vecto
                 Blueprint* blueprint = new Blueprint(normal);
                 extractBlueprintVectorFromOrthogamiFaceVectorRecursivly(orthogamiFaceVector, orthogamiEdgeVector, orthogamiFaceMarkedArray, *blueprint, i, 0, 0, matrix);
                 blueprintVector->push_back(blueprint);
-                std::cout << "Blueprint size: " << blueprint->getSize() << " width: " << blueprint->getWidth() << " height: " << blueprint->getHeight() << std::endl;
-                std::cout << "x: " << normal.getX() << " y: " << normal.getY() << " z: " << normal.getZ() << std::endl;
+                //std::cout << "Blueprint size: " << blueprint->getSize() << " width: " << blueprint->getWidth() << " height: " << blueprint->getHeight() << std::endl;
+                //std::cout << "x: " << normal.getX() << " y: " << normal.getY() << " z: " << normal.getZ() << std::endl;
                 blueprintIndex++;
             }
         }
