@@ -19,8 +19,8 @@
       "icon": "build/icon"
     }
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Florian Fechner",
+  "license": "CC BY-NC",
   "dependencies": {
     "handlebars": "^4.0.11",
     "nbt": "^0.7.0",
