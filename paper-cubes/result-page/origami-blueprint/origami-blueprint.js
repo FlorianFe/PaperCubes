@@ -47,7 +47,7 @@ class OrigamiBlueprint extends Polymer.Element
             }
             else
             {
-              console.log("printing success!");
+              console.log("Printing success!");
             }
           });
         });

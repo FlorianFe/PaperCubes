@@ -91,7 +91,7 @@
     {
       "east": "log_oak_top:180",
       "west": "log_oak_top",
-      "top": "log_oak:90",
+      "top": "log_oak:270",
       "bottom": "log_oak:270",
       "north": "log_oak:90",
       "south": "log_oak:270"
@@ -100,7 +100,7 @@
     {
       "east": "log_spruce_top:180",
       "west": "log_spruce_top",
-      "top": "log_spruce:90",
+      "top": "log_spruce:270",
       "bottom": "log_spruce:270",
       "north": "log_spruce:90",
       "south": "log_spruce:270"
@@ -109,7 +109,7 @@
     {
       "east": "log_birch_top:180",
       "west": "log_birch_top",
-      "top": "log_birch:90",
+      "top": "log_birch:270",
       "bottom": "log_birch:270",
       "north": "log_birch:90",
       "south": "log_birch:270"
@@ -118,7 +118,7 @@
     {
       "east": "log_jungle_top:180",
       "west": "log_jungle_top",
-      "top": "log_jungle:90",
+      "top": "log_jungle:270",
       "bottom": "log_jungle:270",
       "north": "log_jungle:90",
       "south": "log_jungle:270"
@@ -129,8 +129,8 @@
       "south": "log_oak_top",
       "top": "log_oak",
       "bottom": "log_oak:180",
-      "east": "log_oak:90",
-      "west": "log_oak:270"
+      "east": "log_oak:270",
+      "west": "log_oak:90"
     },
     "9":
     {
@@ -138,8 +138,8 @@
       "south": "log_spruce_top",
       "top": "log_spruce",
       "bottom": "log_spruce:180",
-      "east": "log_spruce:90",
-      "west": "log_spruce:270"
+      "east": "log_spruce:270",
+      "west": "log_spruce:90"
     },
     "10":
     {
@@ -147,8 +147,8 @@
       "south": "log_birch_top",
       "top": "log_birch",
       "bottom": "log_birch:180",
-      "east": "log_birch:90",
-      "west": "log_birch:270"
+      "east": "log_birch:270",
+      "west": "log_birch:90"
     },
     "11":
     {
@@ -156,8 +156,8 @@
       "south": "log_jungle_top",
       "top": "log_jungle",
       "bottom": "log_jungle:180",
-      "east": "log_jungle:90",
-      "west": "log_jungle:270"
+      "east": "log_jungle:270",
+      "west": "log_jungle:90"
     },
     "12":
     {

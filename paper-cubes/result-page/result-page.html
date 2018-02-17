@@ -3,7 +3,10 @@
 
 <!-- Imports Dependencies -->
 <link rel="import" href="origami-blueprint/origami-blueprint.html">
-<link rel="import" href="origami-blueprint/origami-blueprint.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-swatch-picker/paper-swatch-picker.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
 
 <!-- Defines element markup -->
 <dom-module id="result-page">
@@ -16,6 +19,7 @@
       display: block;
       width: 100%;
       height: 100%;
+      overflow-y: hidden;
 
       --convex-color: #bbb;
       --concarve-color: #eee;
@@ -42,6 +46,12 @@
       --paper-fab-keyboard-focus-background: var(--primary-color);
     }
 
+    #edit-button
+    {
+      color: #000;
+      --paper-fab-background: #fff;
+      --paper-fab-keyboard-focus-background: #ddd;
+    }
 
     </style>
 

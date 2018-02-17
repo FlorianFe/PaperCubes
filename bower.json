@@ -24,7 +24,7 @@
     "polymer": "Polymer/Polymer#^2.0.2",
     "vaadin-upload": "^2.0.0",
     "paper-card": "PolymerElements/paper-card#^2.0.0",
-    "paper-input": "PolymerElements/paper-input#^2.0.1",
+    "paper-input": "PolymerElements/paper-input#^2.1.1",
     "paper-toast": "PolymerElements/paper-toast#^2.0.0",
     "paper-swatch-picker": "PolymerElements/paper-swatch-picker#^2.0.0",
     "iron-icons": "PolymerElements/iron-icons#^2.0.1",
@@ -34,6 +34,7 @@
     "iron-pages": "^2.0.1",
     "iron-list": "PolymerElements/iron-list#^2.0.8",
     "paper-fab": "^2.0.0",
-    "web-animations-js": "^2.3.1"
+    "web-animations-js": "^2.3.1",
+    "paper-dialog": "PolymerElements/paper-dialog#^2.0.1"
   }
 }
