@@ -72,13 +72,13 @@ npm start
   </tr>
   <tr>
     <td>Mac</td>
-    <td>1.1.4 BETA</td>
-    <td><a href="https://github.com/FlorianFe/PaperCubes/releases/download/v1.1.4-beta/PaperCubes.dmg">Download</a></td>
+    <td>1.2.0 BETA</td>
+    <td><a href="https://github.com/FlorianFe/PaperCubes/releases/download/v1.2.0-beta/PaperCubes.dmg">Download</a></td>
   </tr>
   <tr>
     <td>Windows</td>
-    <td>1.1.4 BETA</td>
-    <td><a href="https://github.com/FlorianFe/PaperCubes/releases/download/v1.1.4-beta/PaperCubes.exe">Download</a></td>
+    <td>1.2.0 BETA</td>
+    <td><a href="https://github.com/FlorianFe/PaperCubes/releases/download/v1.2.0-beta/PaperCubes.exe">Download</a></td>
   </tr>
 </table>
 
