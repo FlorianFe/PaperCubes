@@ -35,11 +35,13 @@ class OrigamiBlueprint extends Polymer.Element
     {
       if(filename != undefined)
       {
+        this.dispatchEvent(new CustomEvent('start-printing', {}));
+
         let browserWindow = require('electron').remote.getCurrentWindow();
 
         browserWindow.webContents.printToPDF({ pageSize: "A4" }, (err, data) =>
         {
-          fs.writeFile(filename, data, function(err)
+          fs.writeFile(filename, data, (err) =>
           {
             if(err)
             {
@@ -49,6 +51,8 @@ class OrigamiBlueprint extends Polymer.Element
             {
               console.log("Printing success!");
             }
+
+            this.dispatchEvent(new CustomEvent('printing-finished', {}));
           });
         });
       }

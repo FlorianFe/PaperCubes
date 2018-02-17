@@ -37,9 +37,9 @@
       display: flex;
     }
 
-    paper-card > div > div
+    .flex-item
     {
-      padding: 15px;
+      flex: 1;
     }
 
     paper-button
@@ -54,15 +54,15 @@
       color: black;
     }
 
-    vaadin-upload
-    {
-      height: 45%;
-    }
-
     paper-toast
     {
       --paper-toast-background-color: #fff;
       --paper-toast-color: #f00;
+    }
+
+    vaadin-upload
+    {
+      height: 85px;
     }
 
     </style>
@@ -70,7 +70,7 @@
     <vaadin-upload id="minecraft-schematic-file-upload" max-files="1">
       <span slot="drop-label">Drop Minecraft Schematic here...</span>
     </vaadin-upload>
-    <br><br>
+    <br>
     <vaadin-upload id="minecraft-texture-pack-upload" max-files="1">
       <span slot="drop-label">Drop Minecraft Texture Pack here...</span>
     </vaadin-upload>

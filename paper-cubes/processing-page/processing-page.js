@@ -9,14 +9,17 @@ class ProcessingPage extends Polymer.Element
   static get properties()
   {
     return {
-
+      label:
+      {
+        type: String,
+        value: "loading"
+      }
     }
   }
 
   constructor()
   {
     super();
-    
   }
 
   connectedCallback()

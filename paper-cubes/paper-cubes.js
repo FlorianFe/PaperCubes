@@ -13,6 +13,11 @@ class PaperCubes extends Polymer.Element
       {
         type: Number,
         value: 0
+      },
+      processingPageLabel:
+      {
+        type: String,
+        value: 'loading'
       }
     }
   }
@@ -23,11 +28,23 @@ class PaperCubes extends Polymer.Element
 
     this.$["configuration-page"].addEventListener('continue', () =>
     {
+      this.processingPageLabel = "loading";
       this.selectedPage = 1;
       this.$["result-page"].calculate();
     });
 
     this.$["result-page"].addEventListener('calculation-finished', () =>
+    {
+      this.selectedPage = 2;
+    });
+
+    this.$["result-page"].addEventListener('start-printing', () =>
+    {
+      this.processingPageLabel = "PDF printing";
+      this.selectedPage = 1;
+    });
+
+    this.$["result-page"].addEventListener('printing-finished', () =>
     {
       this.selectedPage = 2;
     });

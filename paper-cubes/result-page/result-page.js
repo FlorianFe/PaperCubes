@@ -38,6 +38,16 @@ class ResultPage extends Polymer.Element
       this.$["origami-blueprint"].exportToPDF();
     });
 
+    this.$["origami-blueprint"].addEventListener("start-printing", () =>
+    {
+      this.dispatchEvent(new CustomEvent('start-printing', {}));
+    });
+
+    this.$["origami-blueprint"].addEventListener("printing-finished", () =>
+    {
+      this.dispatchEvent(new CustomEvent('printing-finished', {}));
+    });
+
     this.$["origami-blueprint"].addEventListener('calculation-finished', () =>
     {
       this.dispatchEvent(new CustomEvent('calculation-finished', {}));
