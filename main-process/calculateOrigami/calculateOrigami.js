@@ -3,7 +3,7 @@ const fs = require('fs');
 
 function calculateOrigami(data, onCalculationFinished)
 {
-  const m2o = require('./minecraftOrthogami/build/Release/binding');
+  const m2o = require('./minecraftOrthogami/binding');
   const blockIdList = require('./block_id_list.json');
   const Handlebars = require('handlebars');
 
