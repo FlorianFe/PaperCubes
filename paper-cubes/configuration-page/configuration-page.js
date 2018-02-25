@@ -1,3 +1,4 @@
+const {ipcRenderer} = require('electron');
 
 class ConfigurationPage extends Polymer.Element
 {
@@ -9,25 +10,17 @@ class ConfigurationPage extends Polymer.Element
   static get properties()
   {
     return {
-      texturePackUploadPath:
+      texturePackPath:
       {
         type: String,
-        notify: true
+        notify: true,
+        value: null
       },
-      minecraftSchematicPath:
+      schematic:
       {
         type: String,
-        notify: true
-      },
-      condition1:
-      {
-        type: Boolean,
-        value: false
-      },
-      condition2:
-      {
-        type: Boolean,
-        value: false
+        notify: true,
+        value: null
       }
     }
   }
@@ -35,6 +28,8 @@ class ConfigurationPage extends Polymer.Element
   constructor()
   {
     super();
+
+    this.loading = false;
   }
 
   connectedCallback()
@@ -43,22 +38,53 @@ class ConfigurationPage extends Polymer.Element
 
     this.$["continue-button"].addEventListener('click', () =>
     {
-      if(!this.isNotReadyForCalculation(this.condition1, this.condition2))
+      if(!this.isNotReadyForCalculation(this.schematic, this.texturePackPath))
       {
         this.dispatchEvent(new CustomEvent('continue', {}));
       }
     });
 
-    this.$["minecraft-schematic-file-upload"].addEventListener('upload-success', (data) =>
+    this.$["schematic-file-upload"].addEventListener('upload-abort', (data) =>
     {
-      this.minecraftSchematicPath = this.$["minecraft-schematic-file-upload"].files[0].path;
-      this.condition1 = true;
+      this.schematic = null;
     });
 
-    this.$["minecraft-texture-pack-upload"].addEventListener('upload-success', () =>
+    this.$["schematic-file-upload"].addEventListener('upload-success', (data) =>
     {
-      this.texturePackUploadPath = this.$["minecraft-texture-pack-upload"].files[0].path;
-      this.condition2 = true;
+      let schematicPath = this.$["schematic-file-upload"].files[0].path;
+
+      ipcRenderer.send('parseSchematicFile',
+      {
+        schematicPath: schematicPath
+      });
+
+      ipcRenderer.on('parseSchematicFileFinished', (event, data) =>
+      {
+        this.schematic = data.schematic;
+      });
+    });
+
+    this.$["texture-pack-upload"].addEventListener('upload-abort', () =>
+    {
+      this.texturePackPath = "";
+    });
+
+    this.$["texture-pack-upload"].addEventListener('upload-success', () =>
+    {
+      let texturePackSourcePath = this.$["texture-pack-upload"].files[0].path;
+
+      ipcRenderer.send('uploadTexturePack',
+      {
+        sourcePath: texturePackSourcePath
+      });
+
+      this.loading = true;
+
+      ipcRenderer.on('uploadTexturePackFinished', (event, data) =>
+      {
+        this.texturePackPath = data.texturePackPath;
+        this.loading = false;
+      });
     });
 
     window.addEventListener("error", (exception) =>
@@ -73,8 +99,11 @@ class ConfigurationPage extends Polymer.Element
     return (!value);
   }
 
-  isNotReadyForCalculation(condition1, condition2)
+  isNotReadyForCalculation(schematic, texturePackPath)
   {
+    let condition1 = !!(schematic);
+    let condition2 = !!(texturePackPath);
+
     return !(condition1 && condition2);
   }
 }

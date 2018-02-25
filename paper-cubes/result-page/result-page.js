@@ -9,10 +9,11 @@ class ResultPage extends Polymer.Element
   static get properties()
   {
     return {
-      minecraftSchematicPath: String,
-      minecraftTexturePackData: String,
-
-      texturePackUploadPath:
+      schematic:
+      {
+        type: Object
+      },
+      texturePackPath:
       {
         type: String
       }

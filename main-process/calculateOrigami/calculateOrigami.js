@@ -11,6 +11,8 @@ function calculateOrigami(data, onCalculationFinished)
 
   const blockTexturePath = path.join(data.texturePackPath, "assets/minecraft/textures/blocks");
 
+  console.log("DATA:", data);
+
   fs.readdir(blockTexturePath, (err, files) =>
   {
     let textures = files.map((file) =>
@@ -22,39 +24,40 @@ function calculateOrigami(data, onCalculationFinished)
     {
       if (err) throw err;
 
-      parseSchematicFile(data.minecraftSchematicPath, (schema) =>
+      let schema = data.schematic;
+
+      console.log(schema.width, schema.height, schema.depth);
+
+      let dimension = Math.max(schema.width, schema.height, schema.depth);
+      let voxelData = Array(dimension * dimension * dimension).fill({type: 0, metaType: 0});
+
+      for(let x=0; x<schema.width; x++)
       {
-        let dimension = Math.max(schema.width, schema.height, schema.length);
-        let voxelData = Array(dimension * dimension * dimension).fill({type: 0, metaType: 0});
-
-        for(let x=0; x<schema.width; x++)
+        for(let y=0; y<schema.height; y++)
         {
-          for(let y=0; y<schema.height; y++)
+          for(let z=0; z<schema.depth; z++)
           {
-            for(let z=0; z<schema.length; z++)
-            {
-              let block = schema.blocks[x + y * schema.length * schema.width + z * schema.width];
+            let block = schema.blocks[x + y * schema.depth * schema.width + z * schema.depth];
 
-              if(blockIdList[charToUnsignedChar(block.id)] != undefined)
-              {
-                voxelData[x + dimension * y + dimension * dimension * z] = { type: charToUnsignedChar(block.id), metaType: block.metaData };
-              }
+            if(blockIdList[charToUnsignedChar(block.id)] != undefined)
+            {
+              voxelData[x + dimension * y + dimension * dimension * z] = { type: charToUnsignedChar(block.id), metaType: block.metaData };
             }
           }
         }
+      }
 
-        let context = m2o.orthogami(
-          voxelData, dimension, dimension, dimension
-        );
+      let context = m2o.orthogami(
+        voxelData, dimension, dimension, dimension
+      );
 
-        context.texturePath = path.join(data.texturePackPath, "assets/minecraft/textures/blocks");
-        context.textures = textures;
+      context.texturePath = path.join(data.texturePackPath, "assets/minecraft/textures/blocks");
+      context.textures = textures;
 
-        let template = Handlebars.compile(source);
-        let html = template(context);
+      let template = Handlebars.compile(source);
+      let html = template(context);
 
-        onCalculationFinished(html);
-      });
+      onCalculationFinished(html);
     });
   });
 }
@@ -153,40 +156,6 @@ function registerHandlebarsHelper(Handlebars, blockIdList)
 
     return (textureArray.length <= 1) ? 0 : textureArray[1];
   });
-}
-
-function parseSchematicFile(fileName, onCalculationFinished)
-{
-  let nbt = require('nbt');
-
-  let data = fs.readFileSync(fileName);
-
-  let schematic = {};
-
-  nbt.parse(data, (error, data) =>
-  {
-    if (error) { throw error; }
-
-    schematic.width = data.value.Width.value;
-    schematic.height = data.value.Height.value;
-    schematic.length = data.value.Length.value;
-
-    let blockIds = data.value.Blocks.value;
-    let metaData = data.value.Data.value;
-
-    let blocks = [];
-
-    for(let i=0; i<blockIds.length; i++)
-    {
-      blocks.push({ id: blockIds[i], metaData: metaData[i] });
-    }
-
-    schematic.blocks = blocks;
-
-    onCalculationFinished(schematic);
-  });
-
-  return schematic;
 }
 
 function charToUnsignedChar(char)

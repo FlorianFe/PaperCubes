@@ -11,15 +11,32 @@ class OrigamiBlueprint extends Polymer.Element
   static get properties()
   {
     return {
-      minecraftSchematicPath: String,
-      texturePackUploadPath: String,
-      texturePackPath: String
+      schematic:
+      {
+        type: Object
+      },
+      texturePackPath:
+      {
+        type: String
+      }
     }
   }
 
   connectedCallback()
   {
     super.connectedCallback();
+
+    const {ipcRenderer} = require('electron');
+
+    ipcRenderer.on('schematicToOrigamiCalulationFinished', (event, data) =>
+    {
+      let html = data.html;
+
+      this.$["result-container"].innerHTML = html;
+      document.getElementById("printing-container").innerHTML = html;
+
+      this.dispatchEvent(new CustomEvent('calculation-finished', {}));
+    });
   }
 
   exportToPDF()
@@ -61,45 +78,13 @@ class OrigamiBlueprint extends Polymer.Element
 
   calculate()
   {
-    const fs = require("fs");
-    const unzip = require("unzip");
-    const path = require('path');
-    const app = require('electron').remote.app;
-    const applicationName = require(__dirname + '/package.json').name;
-    const appDataPath = app.getPath("appData");
-    const fileStoragePath = path.join(appDataPath, applicationName);
+    const {ipcRenderer} = require('electron');
 
-    const texturePackPath = path.join(fileStoragePath, "texture-pack");
-    this.texturePackPath = texturePackPath;
-
-    console.log(this.texturePackUploadPath);
-
-    fs.createReadStream(this.texturePackUploadPath)
-    .pipe(
-      unzip.Extract({ path: texturePackPath })
-      .on('close', () =>
-      {
-        const {ipcRenderer} = require('electron');
-
-        console.log("EZ; ", this.schematicData, this.texturePackPath);
-
-        ipcRenderer.send('startSchematicToOrigamiCalculation',
-        {
-          minecraftSchematicPath: this.minecraftSchematicPath,
-          texturePackPath: this.texturePackPath
-        });
-
-        ipcRenderer.on('schematicToOrigamiCalulationFinished', (event, data) =>
-        {
-          let html = data.html;
-
-          this.$["result-container"].innerHTML = html;
-          document.getElementById("printing-container").innerHTML = html;
-
-          this.dispatchEvent(new CustomEvent('calculation-finished', {}));
-        });
-      })
-    );
+    ipcRenderer.send('startSchematicToOrigamiCalculation',
+    {
+      schematic: this.schematic,
+      texturePackPath: this.texturePackPath
+    });
   }
 
   not(value)

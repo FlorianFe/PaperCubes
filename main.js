@@ -8,7 +8,10 @@ const ipcMain = electron.ipcMain;
 const path = require('path');
 const url = require('url');
 const fs = require('fs');
+
 const calculateOrigami = require('./main-process/calculateOrigami/calculateOrigami');
+const parseSchematicFile = require('./main-process/parseSchematicFile/parseSchematicFile');
+const uploadTexturePack = require('./main-process/uploadTexturePack/uploadTexturePack');
 
 let browserWindow = null;
 
@@ -127,6 +130,24 @@ function createWindow()
 app.on('ready', () =>
 {
   createWindow();
+
+  ipcMain.on("parseSchematicFile", (event, data) =>
+  {
+    parseSchematicFile(data.schematicPath, (schematic) =>
+    {
+      event.sender.send("parseSchematicFileFinished", { schematic: schematic });
+    });
+  });
+
+  ipcMain.on("uploadTexturePack", (event, data) =>
+  {
+    let texturePackSourcePath = data.sourcePath;
+
+    uploadTexturePack(texturePackSourcePath, (texturePackPath) =>
+    {
+      event.sender.send("uploadTexturePackFinished", { texturePackPath: texturePackPath });
+    });
+  });
 
   ipcMain.on("startSchematicToOrigamiCalculation", (event, data) =>
   {

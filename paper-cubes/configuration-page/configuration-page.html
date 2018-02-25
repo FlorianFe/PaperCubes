@@ -7,6 +7,9 @@
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/paper-swatch-picker/paper-swatch-picker.html">
 <link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
+<link rel="import" href="../../bower_components/voxel-visualization/voxel-visualization.html">
+
+<link rel="import" href="../processing-page/processing-page.html">
 
 <!-- Defines element markup -->
 <dom-module id="configuration-page">
@@ -17,6 +20,8 @@
     :host
     {
       display: block;
+      width: 100%;
+      height: calc(100% - 5px);
     }
 
     paper-card
@@ -28,6 +33,9 @@
 
     .align-right
     {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
       text-align: right;
       margin: 10px;
     }
@@ -35,11 +43,31 @@
     .flex-container
     {
       display: flex;
+      height: 100%;
+      width: 100%;
+      top: 10px;
+      left: 10px;
     }
 
     .flex-item
     {
       flex: 1;
+      height: 100%;
+      padding: 5px;
+    }
+
+    .flex-item-2
+    {
+      flex: 2;
+      height: 100%;
+      padding: 5px;
+    }
+
+    .flex-item-3
+    {
+      flex: 3;
+      height: 100%;
+      padding: 5px;
     }
 
     paper-button
@@ -60,23 +88,41 @@
       --paper-toast-color: #f00;
     }
 
-    vaadin-upload
+    #voxel-visualization
     {
-      height: 85px;
+      width: 100%;
+      height: 100%;
     }
 
     </style>
 
-    <vaadin-upload id="minecraft-schematic-file-upload" max-files="1">
-      <span slot="drop-label">Drop Minecraft Schematic here...</span>
-    </vaadin-upload>
-    <br>
-    <vaadin-upload id="minecraft-texture-pack-upload" max-files="1">
-      <span slot="drop-label">Drop Minecraft Texture Pack here...</span>
-    </vaadin-upload>
-    <br>
+    <div class="flex-container">
+      <div class="flex-item-2">
+        <vaadin-upload id="schematic-file-upload" max-files="1">
+          <span slot="drop-label">Drop Minecraft Schematic here...</span>
+        </vaadin-upload>
+        <br>
+        <vaadin-upload id="texture-pack-upload" max-files="1">
+          <span slot="drop-label">Drop Minecraft Texture Pack here...</span>
+        </vaadin-upload>
+      </div>
+
+      <div class="flex-item-3">
+        <template is="dom-if" if="[[not(loading)]]">
+          <voxel-visualization
+            id="voxel-visualization"
+            schematic="[[schematic]]"
+            texture-pack-path="[[texturePackPath]]"
+          ></voxel-visualization>
+        </template>
+        <template is="dom-if" if="[[loading]]">
+          <processing-page></processing-page>
+        </template>
+      </div>
+    </div>
+
     <div class="align-right">
-      <paper-button disabled="[[isNotReadyForCalculation(condition1, condition2)]]" id="continue-button">continue</paper-button>
+      <paper-button disabled="[[isNotReadyForCalculation(schematic, texturePackPath)]]" id="continue-button">continue</paper-button>
     </div>
   </template>
 

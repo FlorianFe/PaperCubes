@@ -36,6 +36,6 @@
     "paper-fab": "^2.0.0",
     "web-animations-js": "^2.3.1",
     "paper-dialog": "PolymerElements/paper-dialog#^2.0.1",
-    "file-drop-zone": "PolymerVis/file-drop-zone#^2.0.3"
+    "voxel-visualization": "^1.0.5"
   }
 }
