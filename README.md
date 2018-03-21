@@ -41,7 +41,7 @@ npm config set msvs_version 2015 --global
 # Clone this repository
 git clone https://github.com/florianfe/PaperCubes
 # Go into the repository
-cd Elements
+cd PaperCubes
 # Install npm dependencies
 npm install
 # Install bower dependencies
