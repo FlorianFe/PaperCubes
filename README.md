@@ -3,7 +3,7 @@
   <img alt="Icon" src="https://florianfe.github.io/screenshots/PaperCubes/icon.png">
   <h1 align="center">🏡🖨 PaperCubes</h1>
   <p align="center">
-A desktop app which converts your minecraft <a href="http://www.minecraft-schematics.com/worldedit/tutorial/">.schematic</a> files <br>you got from <a href="https://github.com/sk89q/WorldEdit">worldedit</a> into blueprints for papercraft.
+A desktop app which converts your minecraft <a href="http://www.minecraft-schematics.com/worldedit/tutorial/">.schematic</a> files <br>you got from <a href="https://github.com/sk89q/WorldEdit">worldedit</a> to blueprints for papercraft.
   <br><br>
   PaperCubes is still in BETA. Errors may occur. <br> When you found one, please open an issue for me. <br><br>
   <a href="http://forthebadge.com"><img alt="forthebadge" src="http://forthebadge.com/images/badges/built-with-love.svg"></a>
