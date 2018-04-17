@@ -4,14 +4,13 @@ const fs = require('fs');
 function calculateOrigami(data, onCalculationFinished)
 {
   const m2o = require('./minecraftOrthogami/binding');
+  const subdivideOrigami = require('./subdivideOrigami/subdivideOrigami');
   const blockIdList = require('./block_id_list.json');
   const Handlebars = require('handlebars');
 
   registerHandlebarsHelper(Handlebars, blockIdList);
 
   const blockTexturePath = path.join(data.texturePackPath, "assets/minecraft/textures/blocks");
-
-  console.log("DATA:", data);
 
   fs.readdir(blockTexturePath, (err, files) =>
   {
@@ -41,14 +40,18 @@ function calculateOrigami(data, onCalculationFinished)
 
             if(blockIdList[charToUnsignedChar(block.id)] != undefined)
             {
-              voxelData[x + dimension * y + dimension * dimension * z] = { type: charToUnsignedChar(block.id), metaType: block.metaData };
+              voxelData[x + dimension * z + dimension * dimension * y] = { type: charToUnsignedChar(block.id), metaType: block.metaData };
             }
           }
         }
       }
 
+      let subdividedVoxelData = subdivideOrigami(voxelData, [dimension, dimension, dimension]);
+
+
       let context = m2o.orthogami(
-        voxelData, dimension, dimension, dimension
+        subdividedVoxelData,
+        dimension*2, dimension*2, dimension*2
       );
 
       context.texturePath = path.join(data.texturePackPath, "assets/minecraft/textures/blocks");

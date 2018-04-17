@@ -24,6 +24,8 @@
   "dependencies": {
     "handlebars": "^4.0.11",
     "nbt": "^0.7.0",
+    "ndarray": "^1.0.18",
+    "ndarray-show": "^2.0.0",
     "unzip": "^0.1.11"
   },
   "devDependencies": {

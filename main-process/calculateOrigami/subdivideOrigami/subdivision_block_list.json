@@ -1,0 +1,21 @@
+{
+  "44": { "id": 43, "meta": 0, "transformationType": "slabs" },
+  "126": { "id": 125, "meta": 0, "transformationType": "slabs" },
+  "182": { "id": 181, "meta": 0, "transformationType": "slabs"},
+  "205": { "id": 204, "meta": 0, "transformationType": "slabs" },
+
+  "53": { "id": 125, "meta": 0, "transformationType": "stairs"},
+  "67": { "id": 4, "meta": 0, "transformationType": "stairs"},
+  "108": { "id": 43, "meta": 4, "transformationType": "stairs" },
+  "109": { "id": 98, "meta": 0, "transformationType": "stairs" },
+  "114": { "id": 112, "meta": 0, "transformationType": "stairs" },
+  "128": { "id": 24, "meta": 0, "transformationType": "stairs" },
+  "134": { "id": 5, "meta": 1, "transformationType": "stairs" },
+  "135": { "id": 5, "meta": 2, "transformationType": "stairs" },
+  "136": { "id": 5, "meta": 3, "transformationType": "stairs" },
+  "156": { "id": 155, "meta": 0, "transformationType": "stairs" },
+  "163": { "id": 5, "meta": 4, "transformationType": "stairs" },
+  "164": { "id": 5, "meta": 5, "transformationType": "stairs" },
+  "180": { "id": 179, "meta": 0, "transformationType": "stairs" },
+  "203": { "id": 201, "meta": 0, "transformationType": "stairs" }
+}
