@@ -106,12 +106,20 @@ void orthogami(const FunctionCallbackInfo<Value>& args)
     for(int i = 0; i < node_matrixLength; i++)
     {
         Local<Object> node_matrixElement = node_matrix->Get(i)->ToObject(isolate);
+        Local<Object> node_textureOffset = node_matrixElement->Get(String::NewFromUtf8(isolate, "textureOffset"))->ToObject(isolate);
         
         unsigned int type = (unsigned int)(node_matrixElement->Get(String::NewFromUtf8(isolate, "type"))->ToInteger(isolate)->Value());
         unsigned int metaType = (unsigned int)(node_matrixElement->Get(String::NewFromUtf8(isolate, "metaType"))->ToInteger(isolate)->Value());
         
+        unsigned int textureOffsetX = (unsigned int)(node_textureOffset->Get(String::NewFromUtf8(isolate, "x"))->toInteger(isolate)->Value());
+        unsigned int textureOffsetY = (unsigned int)(node_textureOffset->Get(String::NewFromUtf8(isolate, "y"))->toInteger(isolate)->Value());
+        unsigned int textureOffsetZ = (unsigned int)(node_textureOffset->Get(String::NewFromUtf8(isolate, "z"))->toInteger(isolate)->Value());
+        
         data[i].type = type;
         data[i].metaType = metaType;
+        data[i].textureOffset.x = textureOffsetX;
+        data[i].textureOffset.y = textureOffsetY;
+        data[i].textureOffset.z = textureOffsetZ;
     }
     
     int matrixWidth = (int)(args[1]->NumberValue());
@@ -165,8 +173,11 @@ void orthogami(const FunctionCallbackInfo<Value>& args)
                 
                 node_tile->Set(String::NewFromUtf8(isolate, "x"), Integer::New(isolate, tile.x));
                 node_tile->Set(String::NewFromUtf8(isolate, "y"), Integer::New(isolate, tile.y));
-                node_tile->Set(String::NewFromUtf8(isolate, "type"), Integer::New(isolate, tile.type));
-                node_tile->Set(String::NewFromUtf8(isolate, "metaType"), Integer::New(isolate, tile.metaType));
+                node_tile->Set(String::NewFromUtf8(isolate, "type"), Integer::New(isolate, tile.block.type));
+                node_tile->Set(String::NewFromUtf8(isolate, "metaType"), Integer::New(isolate, tile.block.metaType));
+                node_tile->Set(String::NewFromUtf8(isolate, "textureOffsetX"), Integer::New(isolate, tile.block.textureOffset.x));
+                node_tile->Set(String::NewFromUtf8(isolate, "textureOffsetY"), Integer::New(isolate, tile.block.textureOffset.y));
+                node_tile->Set(String::NewFromUtf8(isolate, "textureOffsetZ"), Integer::New(isolate, tile.block.textureOffset.z));
                 
                 Local<Object> node_normal = Object::New(isolate);
                 node_normal->Set(String::NewFromUtf8(isolate, "x"), Integer::New(isolate, tile.normal.getX()));

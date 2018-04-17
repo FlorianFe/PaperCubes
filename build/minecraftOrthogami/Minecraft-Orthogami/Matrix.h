@@ -9,11 +9,7 @@
 #ifndef Matrix_h
 #define Matrix_h
 
-struct Block
-{
-    unsigned int type;
-    unsigned int metaType;
-};
+#include "Block.h"
 
 class Matrix
 {

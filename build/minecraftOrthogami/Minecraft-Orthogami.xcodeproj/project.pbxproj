@@ -10,8 +10,6 @@
 		17107AFA1F83A18200E86984 /* Edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17107AF91F83A18200E86984 /* Edge.cpp */; };
 		17107AFE1F83AA8500E86984 /* OrthogamiEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17107AFD1F83AA8500E86984 /* OrthogamiEdge.cpp */; };
 		175B3FC01FF560B80088CFC4 /* extractOrthogamiFaces.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 175B3FBE1FF560B80088CFC4 /* extractOrthogamiFaces.cpp */; };
-		175B3FC41FF568EB0088CFC4 /* calculateTiles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 175B3FC21FF568EB0088CFC4 /* calculateTiles.cpp */; };
-		175B3FC81FF569000088CFC4 /* calculateLinks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 175B3FC61FF569000088CFC4 /* calculateLinks.cpp */; };
 		175CBECB1F810E3B0029F38B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 175CBECA1F810E3B0029F38B /* main.cpp */; };
 		175E86C71F83D57C008CEEEE /* testVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 175E86C61F83D57C008CEEEE /* testVector.cpp */; };
 		175E86C91F83D6F8008CEEEE /* testEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 175E86C81F83D6F8008CEEEE /* testEdge.cpp */; };
@@ -45,9 +43,7 @@
 		17107AFD1F83AA8500E86984 /* OrthogamiEdge.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OrthogamiEdge.cpp; sourceTree = "<group>"; };
 		175B3FBE1FF560B80088CFC4 /* extractOrthogamiFaces.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = extractOrthogamiFaces.cpp; sourceTree = "<group>"; };
 		175B3FBF1FF560B80088CFC4 /* extractOrthogamiFaces.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = extractOrthogamiFaces.hpp; sourceTree = "<group>"; };
-		175B3FC21FF568EB0088CFC4 /* calculateTiles.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = calculateTiles.cpp; sourceTree = "<group>"; };
 		175B3FC31FF568EB0088CFC4 /* calculateTiles.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = calculateTiles.hpp; sourceTree = "<group>"; };
-		175B3FC61FF569000088CFC4 /* calculateLinks.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = calculateLinks.cpp; sourceTree = "<group>"; };
 		175B3FC71FF569000088CFC4 /* calculateLinks.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = calculateLinks.hpp; sourceTree = "<group>"; };
 		175CBEC71F810E3B0029F38B /* Minecraft-Orthogami */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Minecraft-Orthogami"; sourceTree = BUILT_PRODUCTS_DIR; };
 		175CBECA1F810E3B0029F38B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -70,6 +66,7 @@
 		17CB267C1F813F960086E9BA /* Face.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Face.h; sourceTree = "<group>"; };
 		17CB267E1F81400C0086E9BA /* Vector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
 		17CB267F1F81400C0086E9BA /* Vector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
+		17DFE194208640D600E8AA6D /* Block.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Block.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +113,6 @@
 		175B3FC11FF568DC0088CFC4 /* calculateTiles */ = {
 			isa = PBXGroup;
 			children = (
-				175B3FC21FF568EB0088CFC4 /* calculateTiles.cpp */,
 				175B3FC31FF568EB0088CFC4 /* calculateTiles.hpp */,
 			);
 			name = calculateTiles;
@@ -125,7 +121,6 @@
 		175B3FC51FF568F00088CFC4 /* calculateLinks */ = {
 			isa = PBXGroup;
 			children = (
-				175B3FC61FF569000088CFC4 /* calculateLinks.cpp */,
 				175B3FC71FF569000088CFC4 /* calculateLinks.hpp */,
 			);
 			name = calculateLinks;
@@ -150,6 +145,7 @@
 		175CBEC91F810E3B0029F38B /* Minecraft-Orthogami */ = {
 			isa = PBXGroup;
 			children = (
+				17DFE193208640CD00E8AA6D /* Block */,
 				1772DDA21FFFFA1200E6FF8F /* calculatePages */,
 				175B3FBD1FF560760088CFC4 /* extractOrthogamiFaces */,
 				17CB26811F8140140086E9BA /* Vector */,
@@ -240,6 +236,14 @@
 			name = Vector;
 			sourceTree = "<group>";
 		};
+		17DFE193208640CD00E8AA6D /* Block */ = {
+			isa = PBXGroup;
+			children = (
+				17DFE194208640D600E8AA6D /* Block.h */,
+			);
+			name = Block;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -299,14 +303,12 @@
 			files = (
 				17CB267D1F813F960086E9BA /* Face.cpp in Sources */,
 				17CB26781F812CDE0086E9BA /* Matrix.cpp in Sources */,
-				175B3FC41FF568EB0088CFC4 /* calculateTiles.cpp in Sources */,
 				175E86C91F83D6F8008CEEEE /* testEdge.cpp in Sources */,
 				175E86C71F83D57C008CEEEE /* testVector.cpp in Sources */,
 				17B5939E1F85301C002C7945 /* prepareMatrix.cpp in Sources */,
 				175E86CB1F83D9C0008CEEEE /* testFace.cpp in Sources */,
 				17B593A31F8535BE002C7945 /* extractBlueprintVector.cpp in Sources */,
 				1772DDA51FFFFA2D00E6FF8F /* calculatePages.cpp in Sources */,
-				175B3FC81FF569000088CFC4 /* calculateLinks.cpp in Sources */,
 				175B3FC01FF560B80088CFC4 /* extractOrthogamiFaces.cpp in Sources */,
 				17CB26801F81400C0086E9BA /* Vector.cpp in Sources */,
 				17107AFE1F83AA8500E86984 /* OrthogamiEdge.cpp in Sources */,

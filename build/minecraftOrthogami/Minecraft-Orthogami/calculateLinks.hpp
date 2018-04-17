@@ -24,6 +24,4 @@ struct Link
     bool concarve;
 };
 
-std::vector<Link> calculateLinks(std::vector<Blueprint*> blueprintVector, std::vector<OrthogamiFace*> orthogamiFaceVector);
-
 #endif /* calculateLinks_hpp */

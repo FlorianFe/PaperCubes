@@ -14,16 +14,14 @@
 #include "Blueprint.h"
 #include "OrthogamiFace.h"
 #include "Matrix.h"
+#include "Block.h"
 
 struct Tile
 {
     unsigned int x;
     unsigned int y;
-    unsigned int type;
-    unsigned int metaType;
+    Block block;
     Vector normal;
 };
-
-std::vector<Tile> calculateTiles(std::vector<Blueprint*> blueprintVector, std::vector<OrthogamiFace*> orthogamiFaceVector, Matrix matrix, unsigned int width, unsigned int height);
 
 #endif /* calculateTiles_hpp */

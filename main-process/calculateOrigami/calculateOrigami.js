@@ -28,7 +28,7 @@ function calculateOrigami(data, onCalculationFinished)
       console.log(schema.width, schema.height, schema.depth);
 
       let dimension = Math.max(schema.width, schema.height, schema.depth);
-      let voxelData = Array(dimension * dimension * dimension).fill({type: 0, metaType: 0});
+      let voxelData = Array(dimension * dimension * dimension).fill({ type: 0, metaType: 0 });
 
       for(let x=0; x<schema.width; x++)
       {
@@ -48,10 +48,9 @@ function calculateOrigami(data, onCalculationFinished)
 
       let subdividedVoxelData = subdivideOrigami(voxelData, [dimension, dimension, dimension]);
 
-
       let context = m2o.orthogami(
         subdividedVoxelData,
-        dimension*2, dimension*2, dimension*2
+        dimension * 2, dimension * 2, dimension * 2
       );
 
       context.texturePath = path.join(data.texturePackPath, "assets/minecraft/textures/blocks");

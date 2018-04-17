@@ -93,8 +93,7 @@ std::vector<Tile> getTilesOfBlueprint(Blueprint blueprint, Matrix matrix, std::v
             
             OrthogamiFace* orthogamiFace = orthogamiFaceVector.at(orthogamiFaceIndices[j]);
             Vector blockCoordinates = orthogamiFace->getBlockCoordinates();
-            tile.type = matrix.get(blockCoordinates.getX(), blockCoordinates.getY(), blockCoordinates.getZ()).type;
-            tile.metaType = matrix.get(blockCoordinates.getX(), blockCoordinates.getY(), blockCoordinates.getZ()).metaType;
+            tile.block = matrix.get(blockCoordinates.getX(), blockCoordinates.getY(), blockCoordinates.getZ());
             tile.normal = blueprint.getNormal();
             
             tiles.push_back(tile);
