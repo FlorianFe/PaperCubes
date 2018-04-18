@@ -77,7 +77,7 @@ unsigned int getRowsPerPage(std::vector<Blueprint*> blueprintVector)
         rowsPerPage = floor(widestBlueprintWidth * sqrt(2));
     }
     
-    return rowsPerPage;
+    return rowsPerPage + 1;
 }
 
 // === NODE JS === //
@@ -111,9 +111,9 @@ void orthogami(const FunctionCallbackInfo<Value>& args)
         unsigned int type = (unsigned int)(node_matrixElement->Get(String::NewFromUtf8(isolate, "type"))->ToInteger(isolate)->Value());
         unsigned int metaType = (unsigned int)(node_matrixElement->Get(String::NewFromUtf8(isolate, "metaType"))->ToInteger(isolate)->Value());
         
-        unsigned int textureOffsetX = (unsigned int)(node_textureOffset->Get(String::NewFromUtf8(isolate, "x"))->toInteger(isolate)->Value());
-        unsigned int textureOffsetY = (unsigned int)(node_textureOffset->Get(String::NewFromUtf8(isolate, "y"))->toInteger(isolate)->Value());
-        unsigned int textureOffsetZ = (unsigned int)(node_textureOffset->Get(String::NewFromUtf8(isolate, "z"))->toInteger(isolate)->Value());
+        unsigned int textureOffsetX = (unsigned int)(node_textureOffset->Get(String::NewFromUtf8(isolate, "x"))->ToInteger(isolate)->Value());
+        unsigned int textureOffsetY = (unsigned int)(node_textureOffset->Get(String::NewFromUtf8(isolate, "y"))->ToInteger(isolate)->Value());
+        unsigned int textureOffsetZ = (unsigned int)(node_textureOffset->Get(String::NewFromUtf8(isolate, "z"))->ToInteger(isolate)->Value());
         
         data[i].type = type;
         data[i].metaType = metaType;
@@ -175,9 +175,14 @@ void orthogami(const FunctionCallbackInfo<Value>& args)
                 node_tile->Set(String::NewFromUtf8(isolate, "y"), Integer::New(isolate, tile.y));
                 node_tile->Set(String::NewFromUtf8(isolate, "type"), Integer::New(isolate, tile.block.type));
                 node_tile->Set(String::NewFromUtf8(isolate, "metaType"), Integer::New(isolate, tile.block.metaType));
-                node_tile->Set(String::NewFromUtf8(isolate, "textureOffsetX"), Integer::New(isolate, tile.block.textureOffset.x));
-                node_tile->Set(String::NewFromUtf8(isolate, "textureOffsetY"), Integer::New(isolate, tile.block.textureOffset.y));
-                node_tile->Set(String::NewFromUtf8(isolate, "textureOffsetZ"), Integer::New(isolate, tile.block.textureOffset.z));
+                
+                Local<Object> node_textureOffset = Object::New(isolate);
+                
+                node_textureOffset->Set(String::NewFromUtf8(isolate, "x"), Integer::New(isolate, tile.block.textureOffset.x));
+                node_textureOffset->Set(String::NewFromUtf8(isolate, "y"), Integer::New(isolate, tile.block.textureOffset.y));
+                node_textureOffset->Set(String::NewFromUtf8(isolate, "z"), Integer::New(isolate, tile.block.textureOffset.z));
+                
+                node_tile->Set(String::NewFromUtf8(isolate, "textureOffset"), node_textureOffset);
                 
                 Local<Object> node_normal = Object::New(isolate);
                 node_normal->Set(String::NewFromUtf8(isolate, "x"), Integer::New(isolate, tile.normal.getX()));

@@ -104,9 +104,7 @@ OBJS := \
 	$(obj).target/$(TARGET)/Minecraft-Orthogami/OrthogamiFace.o \
 	$(obj).target/$(TARGET)/Minecraft-Orthogami/OrthogamiFaceGroup.o \
 	$(obj).target/$(TARGET)/Minecraft-Orthogami/Vector.o \
-	$(obj).target/$(TARGET)/Minecraft-Orthogami/calculateLinks.o \
 	$(obj).target/$(TARGET)/Minecraft-Orthogami/calculatePages.o \
-	$(obj).target/$(TARGET)/Minecraft-Orthogami/calculateTiles.o \
 	$(obj).target/$(TARGET)/Minecraft-Orthogami/extractBlueprintVector.o \
 	$(obj).target/$(TARGET)/Minecraft-Orthogami/extractOrthogamiFaces.o \
 	$(obj).target/$(TARGET)/Minecraft-Orthogami/prepareMatrix.o \

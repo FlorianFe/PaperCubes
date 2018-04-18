@@ -1,6 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 
+const getTextureRotation = require('./handlebars-helpers/getTextureRotation'); // @TODO: Antipattern!
+
 function calculateOrigami(data, onCalculationFinished)
 {
   const m2o = require('./minecraftOrthogami/binding');
@@ -25,8 +27,6 @@ function calculateOrigami(data, onCalculationFinished)
 
       let schema = data.schematic;
 
-      console.log(schema.width, schema.height, schema.depth);
-
       let dimension = Math.max(schema.width, schema.height, schema.depth);
       let voxelData = Array(dimension * dimension * dimension).fill({ type: 0, metaType: 0 });
 
@@ -38,15 +38,24 @@ function calculateOrigami(data, onCalculationFinished)
           {
             let block = schema.blocks[x + y * schema.depth * schema.width + z * schema.depth];
 
-            if(blockIdList[charToUnsignedChar(block.id)] != undefined)
-            {
-              voxelData[x + dimension * z + dimension * dimension * y] = { type: charToUnsignedChar(block.id), metaType: block.metaData };
-            }
+            voxelData[x + dimension * z + dimension * dimension * y] = { type: charToUnsignedChar(block.id), metaType: block.metaData };
           }
         }
       }
 
       let subdividedVoxelData = subdivideOrigami(voxelData, [dimension, dimension, dimension]);
+
+      for(let i=0; i < dimension * dimension * dimension * 8; i++)
+      {
+        let source = subdividedVoxelData[i];
+
+        console.log("from", source.type, "to", blockIdList[source.type]);
+
+        if(blockIdList[source.type] == undefined)
+        {
+          subdividedVoxelData[i] = { type: 0, metaType: 0, textureOffset: source.textureOffset}; // Air
+        }
+      }
 
       let context = m2o.orthogami(
         subdividedVoxelData,
@@ -91,7 +100,7 @@ function registerHandlebarsHelper(Handlebars, blockIdList)
     return new Handlebars.SafeString("0");
   });
 
-  Handlebars.registerHelper('texture', (type, metaType, normal) =>
+  Handlebars.registerHelper('texture', (type, metaType, normal, textureOffset) =>
   {
     if(!blockIdList[type])
     {
@@ -122,41 +131,48 @@ function registerHandlebarsHelper(Handlebars, blockIdList)
 
     let textureName = texture.split(":")[0];
 
+    let a = 0;
+    let b = 0;
+    let c = 0;
+
+    if(normal.x > 0) { a = 0; b = textureOffset.z; c = textureOffset.y }
+    if(normal.z > 0) { a = 1; b = textureOffset.x; c = textureOffset.y }
+    if(normal.y > 0) { a = 1; b = textureOffset.x; c = textureOffset.z + 1 }
+
+    if(normal.x < 0) { a = 1; b = textureOffset.z; c = textureOffset.y }
+    if(normal.z < 0) { a = 0; b = textureOffset.x; c = textureOffset.y }
+    if(normal.y < 0) { a = 1; b = textureOffset.x; c = textureOffset.z }
+
+
+    let texture2dOffset = [(a + b) % 2, c % 2];
+
+    let textureRotation = getTextureRotation(type, metaType, normal, blockIdList);
+    let textureRotationSteps = parseInt(textureRotation / 90);
+
+    let rotationVectors = [
+      [0, 0],
+      [0, 1],
+      [1, 1],
+      [1, 0]
+    ];
+
+    let rotationBase = 0;
+
+    if(texture2dOffset[0] === rotationVectors[0][0] && texture2dOffset[1] === rotationVectors[0][1]) rotationBase = 0;
+    if(texture2dOffset[0] === rotationVectors[1][0] && texture2dOffset[1] === rotationVectors[1][1]) rotationBase = 1;
+    if(texture2dOffset[0] === rotationVectors[2][0] && texture2dOffset[1] === rotationVectors[2][1]) rotationBase = 2;
+    if(texture2dOffset[0] === rotationVectors[3][0] && texture2dOffset[1] === rotationVectors[3][1]) rotationBase = 3;
+
+    let rotationResult = rotationVectors[(rotationBase - textureRotationSteps + 4) % 4];
+
+    textureName += "_" + rotationResult[0] + "_" + rotationResult[1];
+
     return new Handlebars.SafeString(textureName);
   });
 
   Handlebars.registerHelper('texturerotation', (type, metaType, normal) =>
   {
-    if(!blockIdList[type])
-    {
-      console.warn("Block with id " + type + " not supported!");
-      return Handlebars.SafeString("");
-    }
-
-    let textureObject = (blockIdList[type][metaType]) ? blockIdList[type][metaType] : blockIdList[type]["*"];
-    let texture;
-
-    if(typeof textureObject === 'object')
-    {
-      let orientation = "none";
-
-      if(normal.z == -1) orientation = "north";
-      if(normal.x == 1) orientation = "east";
-      if(normal.z == 1) orientation = "south";
-      if(normal.x == -1) orientation = "west";
-      if(normal.y == 1) orientation = "top";
-      if(normal.y == -1) orientation = "bottom";
-
-      texture = (textureObject[orientation]) ? textureObject[orientation] : textureObject["*"];
-    }
-    else
-    {
-      texture = textureObject;
-    }
-
-    let textureArray = texture.split(":");
-
-    return (textureArray.length <= 1) ? 0 : textureArray[1];
+    return getTextureRotation(type, metaType, normal, blockIdList);
   });
 }
 

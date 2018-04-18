@@ -14,7 +14,7 @@ struct TextureOffset
     unsigned int x;
     unsigned int y;
     unsigned int z;
-}
+};
 
 struct Block
 {

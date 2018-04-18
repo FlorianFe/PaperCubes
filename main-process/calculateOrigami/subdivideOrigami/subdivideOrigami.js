@@ -35,16 +35,77 @@ function subdivideOrigami(voxelData, shape)
     let originalIndex = getIndex([originalX, originalY, originalZ], shape);
     let destinationIndex = getIndex([x, y, z], resultShape);
 
-    console.log("o", originalIndex, "d", destinationIndex);
-
     let original = voxelData[originalIndex];
-    let textureOffsets = [x % 2, y % 2, z % 2];
+    let textureOffset = {x: x % 2, y: y % 2, z: z % 2};
 
-    result[destinationIndex] = {
-      type: original.type,
-      metaType: original.metaType,
-      textureOffsets: textureOffsets
-    };
+    let subdivisionBlock = subdivisionBlockList[original.type];
+
+    console.log("originalType", original.type, "subdivisionBlock", subdivisionBlock);
+
+    if(subdivisionBlock)
+    {
+      console.log("transformationType", subdivisionBlock.transformationType);
+
+      if(subdivisionBlock.transformationType == "stairs")
+      {
+        if(
+          original.metaType == 0 && textureOffset.y == 1 && textureOffset.z == 1 ||
+          original.metaType == 1 && textureOffset.y == 1 && textureOffset.z == 0 ||
+          original.metaType == 2 && textureOffset.y == 1 && textureOffset.x == 1 ||
+          original.metaType == 3 && textureOffset.y == 1 && textureOffset.x == 0 ||
+          original.metaType == 4 && textureOffset.y == 0 && textureOffset.z == 1 ||
+          original.metaType == 5 && textureOffset.y == 0 && textureOffset.z == 0 ||
+          original.metaType == 6 && textureOffset.y == 0 && textureOffset.x == 1 ||
+          original.metaType == 7 && textureOffset.y == 0 && textureOffset.x == 0
+        )
+        {
+          result[destinationIndex] = {
+            type: 0, // air
+            metaType: 0,
+            textureOffset: textureOffset
+          };
+        }
+        else
+        {
+          result[destinationIndex] = {
+            type: subdivisionBlock.id,
+            metaType: subdivisionBlock.meta,
+            textureOffset: textureOffset
+          };
+        }
+      }
+      else
+      {
+        console.log("mhm", textureOffset.y, original.metaType);
+        if(
+          textureOffset.y == 0 && parseInt(original.metaType / 8) == 0 || 
+          textureOffset.y == 1 && parseInt(original.metaType / 8) == 1
+        )
+        {
+          result[destinationIndex] = {
+            type: subdivisionBlock.id,
+            metaType: subdivisionBlock.meta,
+            textureOffset: textureOffset
+          };
+        }
+        else
+        {
+          result[destinationIndex] = {
+            type: 0, // air
+            metaType: 0,
+            textureOffset: textureOffset
+          };
+        }
+      }
+    }
+    else
+    {
+      result[destinationIndex] = {
+        type: original.type,
+        metaType: original.metaType,
+        textureOffset: textureOffset
+      };
+    }
   }
 
   return result;

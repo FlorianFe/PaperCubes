@@ -5,7 +5,7 @@
   {{#each tiles}}
     <path
       transform="translate({{mul (add x 0.5) 1}}, {{mul (add y 0.5) 1}}) rotate({{texturerotation type metaType normal}}) translate(-{{mul (add x 0.5) 1}}, -{{mul (add y 0.5) 1}})"
-      fill="url(#{{texture type metaType normal}})"
+      fill="url(#{{texture type metaType normal textureOffset}})"
       d="M {{mul x 1}} {{mul y 1}} L {{mul x 1}} {{add (mul y 1) 1}} L {{add (mul x 1) 1}} {{add (mul y 1) 1}} L {{add (mul x 1) 1}} {{mul y 1}}"
     />
   {{/each}}
@@ -73,14 +73,35 @@
 <svg
   width="0" height="0"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <defs id="defs">
-    {{#each textures}}
-    <pattern id="{{this}}" x="0" y="0" width="1" height="1">
-      <image
-        x="0" y="0" width="1" height="1" preserveAspectRatio="xMinYMin slice"
-        xlink:href="{{../texturePath}}/{{this}}.png"
-      ></image>
-    </pattern>
-    {{/each}}
+
+
+    <defs id="defs">
+      {{#each textures}}
+      <pattern id="{{this}}_0_0" x="0" y="0" width="1" height="1">
+        <image
+          x="0" y="-1" width="2" height="2" preserveAspectRatio="xMinYMin slice"
+          xlink:href="{{../texturePath}}/{{this}}.png"
+        ></image>
+      </pattern>
+      <pattern id="{{this}}_1_0" x="0" y="0" width="1" height="1">
+        <image
+          x="-1" y="-1" width="2" height="2" preserveAspectRatio="xMinYMin slice"
+          xlink:href="{{../texturePath}}/{{this}}.png"
+        ></image>
+      </pattern>
+      <pattern id="{{this}}_0_1" x="0" y="0" width="1" height="1">
+        <image
+          x="0" y="0" width="2" height="2" preserveAspectRatio="xMinYMin slice"
+          xlink:href="{{../texturePath}}/{{this}}.png"
+        ></image>
+      </pattern>
+      <pattern id="{{this}}_1_1" x="0" y="0" width="1" height="1">
+        <image
+          x="-1" y="0" width="2" height="2" preserveAspectRatio="xMinYMin slice"
+          xlink:href="{{../texturePath}}/{{this}}.png"
+        ></image>
+      </pattern>
+      {{/each}}
+    </defs>
   </defs>
 </svg>
