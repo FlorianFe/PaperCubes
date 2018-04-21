@@ -51,11 +51,11 @@ class ConfigurationPage extends Polymer.Element
 
     this.$["schematic-file-upload"].addEventListener('upload-success', (data) =>
     {
-      let schematicPath = this.$["schematic-file-upload"].files[0].path;
+      this.schematicPath = this.$["schematic-file-upload"].files[0].path;
 
       ipcRenderer.send('parseSchematicFile',
       {
-        schematicPath: schematicPath
+        schematicPath: this.schematicPath
       });
 
       ipcRenderer.on('parseSchematicFileFinished', (event, data) =>

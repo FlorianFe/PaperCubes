@@ -49,8 +49,6 @@ function calculateOrigami(data, onCalculationFinished)
       {
         let source = subdividedVoxelData[i];
 
-        console.log("from", source.type, "to", blockIdList[source.type]);
-
         if(blockIdList[source.type] == undefined)
         {
           subdividedVoxelData[i] = { type: 0, metaType: 0, textureOffset: source.textureOffset}; // Air

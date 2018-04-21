@@ -8,6 +8,14 @@ const NULL = [0, 0, 0];
 
 function getIndex(coords, shape)
 {
+  for(let i=0; i<coords.length; i++)
+  {
+    if(coords[i] < 0 || coords[i] >= shape[i])
+    {
+      return null;
+    }
+  }
+
   return (
     coords[0] +
     coords[1] * shape[0] +
@@ -17,6 +25,13 @@ function getIndex(coords, shape)
 
 function getCoordinates(index, shape)
 {
+  let length = shape.reduce((sum, dimension) => sum + dimension, 0);
+  if(index < 0 || index >= length)
+  {
+    console.error("Invalid Index!");
+    return null;
+  }
+
   return [
     index % shape[0],
     parseInt(index / shape[0]) % shape[1],
@@ -26,7 +41,28 @@ function getCoordinates(index, shape)
 
 function subdivideOrigami(voxelData, shape)
 {
-  const subdivisionBlockList = require('./subdivision_block_list.json');
+  const subdivisionBlockList = {
+    44: { "id": 43, "transformationType": "slabs" },
+    126: { "id": 125, "transformationType": "slabs" },
+    182: { "id": 181, "transformationType": "slabs" },
+    205: { "id": 204, "transformationType": "slabs" },
+
+    53: { "id": 125, "meta": 0, "transformationType": "stairs"},
+    67: { "id": 4, "meta": 0, "transformationType": "stairs"},
+    108: { "id": 43, "meta": 4, "transformationType": "stairs" },
+    109: { "id": 98, "meta": 0, "transformationType": "stairs" },
+    114: { "id": 112, "meta": 0, "transformationType": "stairs" },
+    128: { "id": 24, "meta": 0, "transformationType": "stairs" },
+    134: { "id": 5, "meta": 1, "transformationType": "stairs" },
+    135: { "id": 5, "meta": 2, "transformationType": "stairs" },
+    136: { "id": 5, "meta": 3, "transformationType": "stairs" },
+    156: { "id": 155, "meta": 0, "transformationType": "stairs" },
+    163: { "id": 5, "meta": 4, "transformationType": "stairs" },
+    164: { "id": 5, "meta": 5, "transformationType": "stairs" },
+    180: { "id": 179, "meta": 0, "transformationType": "stairs" },
+    203: { "id": 201, "meta": 0, "transformationType": "stairs" }
+  };
+
 
   let result = new Array(voxelData.length * 8);
   const resultShape = shape.map(dimension => dimension * 2);
@@ -52,15 +88,20 @@ function subdivideOrigami(voxelData, shape)
       {
         let frontVector, rightVector, backVector, leftVector;
 
-        if(original.metaType % 4 == 0) { frontVector = EAST; rigthVector = SOUTH; backVector = WEST; rigthVector = NORTH; }
-        if(original.metaType % 4 == 1) { frontVector = WEST; rigthVector = NORTH; backVector = EAST; rigthVector = SOUTH; }
-        if(original.metaType % 4 == 2) { frontVector = SOUTH; rigthVector = WEST; backVector = NORTH; rigthVector = EAST; }
-        if(original.metaType % 4 == 3) { frontVector = NORTH; rigthVector = EAST; backVector = SOUTH; rigthVector = WEST; }
+        if(original.metaType % 4 == 0) { frontVector = EAST; rightVector = SOUTH; backVector = WEST; leftVector = NORTH; }
+        if(original.metaType % 4 == 1) { frontVector = WEST; rightVector = NORTH; backVector = EAST; leftVector = SOUTH; }
+        if(original.metaType % 4 == 2) { frontVector = SOUTH; rightVector = WEST; backVector = NORTH; leftVector = EAST; }
+        if(original.metaType % 4 == 3) { frontVector = NORTH; rightVector = EAST; backVector = SOUTH; leftVector = WEST; }
 
-        let frontNeighbour = voxelData[getIndex(add([originalX, originalY, originalZ], frontVector), shape)];
-        let rightNeighbour = voxelData[getIndex(add([originalX, originalY, originalZ], rightVector), shape)];
-        let backNeighbour = voxelData[getIndex(add([originalX, originalY, originalZ], backVector), shape)];
-        let leftNeighbour = voxelData[getIndex(add([originalX, originalY, originalZ], leftVector), shape)];
+        let frontNeighbourIndex = getIndex(add([originalX, originalY, originalZ], frontVector), shape);
+        let rightNeighbourIndex = getIndex(add([originalX, originalY, originalZ], rightVector), shape);
+        let backNeighbourIndex = getIndex(add([originalX, originalY, originalZ], backVector), shape);
+        let leftNeighbourIndex = getIndex(add([originalX, originalY, originalZ], leftVector), shape);
+
+        let frontNeighbour = (frontNeighbourIndex !== null) ? voxelData[frontNeighbourIndex] : null;
+        let rightNeighbour = (rightNeighbourIndex !== null) ? voxelData[rightNeighbourIndex] : null;
+        let backNeighbour = (backNeighbourIndex !== null) ? voxelData[backNeighbourIndex] : null;
+        let leftNeighbour = (leftNeighbourIndex !== null) ? voxelData[leftNeighbourIndex] : null;
 
         let frontNeighbourRotation = getRotationOfNeighbour(subdivisionBlockList, original, frontNeighbour);
         let rightNeighbourRotation = getRotationOfNeighbour(subdivisionBlockList, original, rightNeighbour);
@@ -97,6 +138,9 @@ function getRotationOfNeighbour(subdivisionBlockList, original, neighbour)
 {
   let originalDirection;
 
+  if(original === null) return NULL;
+  if(neighbour === null) return NULL;
+
   if(original.metaType % 4 == 0) originalDirection = EAST;
   if(original.metaType % 4 == 1) originalDirection = WEST;
   if(original.metaType % 4 == 2) originalDirection = SOUTH;
@@ -112,7 +156,7 @@ function getRotationOfNeighbour(subdivisionBlockList, original, neighbour)
   if(equals(originalDirection, NORTH)) rotation += 0;
   if(equals(originalDirection, EAST)) rotation += 270;
   if(equals(originalDirection, SOUTH)) rotation += 180;
-  if(equals(originalDirection, WEST)) rotation += 180;
+  if(equals(originalDirection, WEST)) rotation += 90;
 
   if(equals(neighbourDirection, NORTH)) rotation += 0;
   if(equals(neighbourDirection, EAST)) rotation += 90;
@@ -128,7 +172,7 @@ function getDirectionOfNeighbour(subdivisionBlockList, original, neighbour)
   {
     if(subdivisionBlockList[neighbour.type].transformationType === "stairs")
     {
-      if(parseInt(original.metatype / 4) === parseInt(neighbour.metatype / 4))
+      if(parseInt(original.metaType / 4) === parseInt(neighbour.metaType / 4))
       {
         if(neighbour.metaType % 4 == 0) return EAST;
         if(neighbour.metaType % 4 == 1) return WEST;
@@ -140,8 +184,6 @@ function getDirectionOfNeighbour(subdivisionBlockList, original, neighbour)
 
   return NULL;
 }
-
-
 
 function transformStairs(original, subdivisionBlock, textureOffset, frontNeighbourRotation, rightNeighbourRotation, backNeighbourRotation, leftNeighbourRotation)
 {
@@ -158,15 +200,15 @@ function transformStairs(original, subdivisionBlock, textureOffset, frontNeighbo
   };
 
   if(
-    original.metaType == 0 && textureOffset.y == 0 || // East - bottom
-    original.metaType == 1 && textureOffset.y == 0 || // West - bottom
-    original.metaType == 2 && textureOffset.y == 0 || // South - bottom
-    original.metaType == 3 && textureOffset.y == 0 || // North - bottom
+    original.metaType % 8 == 0 && textureOffset.y == 0 || // East - bottom
+    original.metaType % 8 == 1 && textureOffset.y == 0 || // West - bottom
+    original.metaType % 8 == 2 && textureOffset.y == 0 || // South - bottom
+    original.metaType % 8 == 3 && textureOffset.y == 0 || // North - bottom
 
-    original.metaType == 4 && textureOffset.y == 1 || // East - top
-    original.metaType == 5 && textureOffset.y == 1 || // West- top
-    original.metaType == 6 && textureOffset.y == 1 || // South - top
-    original.metaType == 7 && textureOffset.y == 1    // North - top
+    original.metaType % 8 == 4 && textureOffset.y == 1 || // East - top
+    original.metaType % 8 == 5 && textureOffset.y == 1 || // West- top
+    original.metaType % 8 == 6 && textureOffset.y == 1 || // South - top
+    original.metaType % 8 == 7 && textureOffset.y == 1    // North - top
   )
   {
     // definitly Material
@@ -179,30 +221,30 @@ function transformStairs(original, subdivisionBlock, textureOffset, frontNeighbo
     // Case 1 - highest Priority
     if(
       frontNeighbourRotation === 270 && rightNeighbourRotation === 0 ||
-      frontNeighbourRotation === 90 && leftNeighbourRotation === 0 ||
+      frontNeighbourRotation === 90 && leftNeighbourRotation === 0
     )
     {
       if(original.metaType % 4 == 0 /* East */ )
       {
-        if(textureOffset.x == 1) return Material;
+        if(textureOffset.x == 1) return MATERIAL;
         if(textureOffset.x == 0) return AIR;
       }
 
       if(original.metaType % 4 == 1 /* West */ )
       {
-        if(textureOffset.x == 0) return Material;
+        if(textureOffset.x == 0) return MATERIAL;
         if(textureOffset.x == 1) return AIR;
       }
 
       if(original.metaType % 4 == 2 /* South */)
       {
-        if(textureOffset.z == 1) return Material;
+        if(textureOffset.z == 1) return MATERIAL;
         if(textureOffset.z == 0) return AIR;
       }
 
       if(original.metaType % 4 == 3 /* North */)
       {
-        if(textureOffset.z == 0) return Material;
+        if(textureOffset.z == 0) return MATERIAL;
         if(textureOffset.z == 1) return AIR;
       }
     }
@@ -210,22 +252,22 @@ function transformStairs(original, subdivisionBlock, textureOffset, frontNeighbo
     // Case 2.1
     if(frontNeighbourRotation === 270)
     {
-      if(original.metaType == 0 /* East */)
+      if(original.metaType % 4 == 0 /* East */)
       {
         return (textureOffset.x == 1 && textureOffset.z == 0) ? MATERIAL : AIR;
       }
 
-      if(original.metaType == 1 /* West */)
+      if(original.metaType % 4 == 1 /* West */)
       {
         return (textureOffset.x == 0 && textureOffset.z == 1) ? MATERIAL : AIR;
       }
 
-      if(original.metaType == 2 /* South */)
+      if(original.metaType % 4 == 2 /* South */)
       {
         return (textureOffset.x == 1 && textureOffset.z == 1) ? MATERIAL : AIR;
       }
 
-      if(original.metaType == 3 /* North */)
+      if(original.metaType % 4 == 3 /* North */)
       {
         return (textureOffset.x == 0 && textureOffset.z == 0) ? MATERIAL : AIR;
       }
@@ -234,22 +276,22 @@ function transformStairs(original, subdivisionBlock, textureOffset, frontNeighbo
     // Case 2.2
     if(frontNeighbourRotation === 90)
     {
-      if(original.metaType == 0 /* East */)
+      if(original.metaType % 4 == 0 /* East */)
       {
         return (textureOffset.x == 1 && textureOffset.z == 1) ? MATERIAL : AIR;
       }
 
-      if(original.metaType == 1 /* West */)
+      if(original.metaType % 4 == 1 /* West */)
       {
         return (textureOffset.x == 0 && textureOffset.z == 0) ? MATERIAL : AIR;
       }
 
-      if(original.metaType == 2 /* South */)
+      if(original.metaType % 4 == 2 /* South */)
       {
         return (textureOffset.x == 0 && textureOffset.z == 1) ? MATERIAL : AIR;
       }
 
-      if(original.metaType == 3 /* North */)
+      if(original.metaType % 4 == 3 /* North */)
       {
         return (textureOffset.x == 1 && textureOffset.z == 0) ? MATERIAL : AIR;
       }
@@ -258,22 +300,22 @@ function transformStairs(original, subdivisionBlock, textureOffset, frontNeighbo
     // Case 3.1
     if(backNeighbourRotation === 270)
     {
-      if(original.metaType == 0 /* East */)
+      if(original.metaType % 4 == 0 /* East */)
       {
         return (textureOffset.x == 0 && textureOffset.z == 0) ? AIR : MATERIAL;
       }
 
-      if(original.metaType == 1 /* West */)
+      if(original.metaType % 4 == 1 /* West */)
       {
         return (textureOffset.x == 1 && textureOffset.z == 1) ? AIR : MATERIAL;
       }
 
-      if(original.metaType == 2 /* South */)
+      if(original.metaType % 4 == 2 /* South */)
       {
         return (textureOffset.x == 1 && textureOffset.z == 0) ? AIR : MATERIAL;
       }
 
-      if(original.metaType == 3 /* North */)
+      if(original.metaType % 4 == 3 /* North */)
       {
         return (textureOffset.x == 0 && textureOffset.z == 1) ? AIR : MATERIAL;
       }
@@ -282,46 +324,46 @@ function transformStairs(original, subdivisionBlock, textureOffset, frontNeighbo
     // Case 3.2
     if(backNeighbourRotation === 90)
     {
-      if(original.metaType == 0 /* East */)
+      if(original.metaType % 4 == 0 /* East */)
       {
         return (textureOffset.x == 0 && textureOffset.z == 1) ? AIR : MATERIAL;
       }
 
-      if(original.metaType == 1 /* West */)
+      if(original.metaType % 4 == 1 /* West */)
       {
         return (textureOffset.x == 1 && textureOffset.z == 0) ? AIR : MATERIAL;
       }
 
-      if(original.metaType == 2 /* South */)
+      if(original.metaType % 4 == 2 /* South */)
       {
         return (textureOffset.x == 0 && textureOffset.z == 0) ? AIR : MATERIAL;
       }
 
-      if(original.metaType == 3 /* North */)
+      if(original.metaType % 4 == 3 /* North */)
       {
         return (textureOffset.x == 1 && textureOffset.z == 1) ? AIR : MATERIAL;
       }
     }
 
     // Case 4
-    if(original.metaType == 0 /* East */)
+    if(original.metaType % 4 == 0 /* East */)
     {
       return (textureOffset.x == 1) ? MATERIAL : AIR;
     }
 
-    if(original.metaType == 1 /* West */)
+    if(original.metaType % 4 == 1 /* West */)
     {
       return (textureOffset.x == 0) ? MATERIAL : AIR;
     }
 
-    if(original.metaType == 2 /* South */)
+    if(original.metaType % 4 == 2 /* South */)
     {
-      return (textureOffset.x == 0) ? MATERIAL : AIR;
+      return (textureOffset.z == 1) ? MATERIAL : AIR;
     }
 
-    if(original.metaType == 3 /* North */)
+    if(original.metaType % 4 == 3 /* North */)
     {
-      return (textureOffset.x == 1) ? MATERIAL : AIR;
+      return (textureOffset.z == 0) ? MATERIAL : AIR;
     }
 
     console.error("ERROR while Stairs Transformation");
@@ -366,6 +408,9 @@ function equals(a, b)
 
 function add(a, b)
 {
+  if(!b) return a;
+  if(!a) return b;
+
   let minLength = Math.min(a.length, b.length);
 
   let c = new Array(minLength)
