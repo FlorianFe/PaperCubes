@@ -1,8 +1,8 @@
 {
-  "44": { "id": 43, "meta": 0, "transformationType": "slabs" },
-  "126": { "id": 125, "meta": 0, "transformationType": "slabs" },
-  "182": { "id": 181, "meta": 0, "transformationType": "slabs"},
-  "205": { "id": 204, "meta": 0, "transformationType": "slabs" },
+  "44": { "id": 43, "transformationType": "slabs" },
+  "126": { "id": 125, "transformationType": "slabs" },
+  "182": { "id": 181, "transformationType": "slabs" },
+  "205": { "id": 204, "transformationType": "slabs" },
 
   "53": { "id": 125, "meta": 0, "transformationType": "stairs"},
   "67": { "id": 4, "meta": 0, "transformationType": "stairs"},
