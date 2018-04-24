@@ -60,7 +60,7 @@ npm start
 ![screenshot 2](https://florianfe.github.io/screenshots/PaperCubes/screenshot%202.png)
 ![screenshot 3](https://florianfe.github.io/screenshots/PaperCubes/screenshot%203.png)
 ![screenshot 4](https://florianfe.github.io/screenshots/PaperCubes/screenshot%204.png)
-![screenshot 5](https://florianfe.github.io/screenshots/PaperCubes/screenshot%205.png)
+![screenshot 5](https://florianfe.github.io/screenshots/PaperCubes/screenshot%206.png)
 
 ## 💾 Download
 
