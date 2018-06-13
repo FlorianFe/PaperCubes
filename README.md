@@ -81,7 +81,7 @@ npm start
     <td><a href="https://github.com/FlorianFe/PaperCubes/releases/download/v1.3.0-beta/PaperCubes.exe">Download</a></td>
   </tr>
   <tr>
-    <td>Windows</td>
+    <td>Linux (.deb)</td>
     <td>1.3.0 BETA</td>
     <td><a href="https://github.com/FlorianFe/PaperCubes/releases/download/v1.3.0-beta/PaperCubes_amd64.deb">Download</a></td>
   </tr>
