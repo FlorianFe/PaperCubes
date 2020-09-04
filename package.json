@@ -22,7 +22,7 @@
   "author": "Florian Fechner",
   "license": "CC BY-NC",
   "dependencies": {
-    "handlebars": "^4.3.0",
+    "handlebars": "^4.5.3",
     "nbt": "^0.7.0",
     "ndarray": "^1.0.18",
     "ndarray-show": "^2.0.0",
