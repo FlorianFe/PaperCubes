@@ -4,8 +4,6 @@
   <h1 align="center">🏡🖨 PaperCubes</h1>
   <p align="center">
 A desktop app which converts your minecraft <a href="https://matthewmiller.dev/blog/use-schematics-worldedit/">.schematic</a> files <br>you got from <a href="https://github.com/EngineHub/WorldEdit">worldedit</a> to blueprints for papercraft.
-  <br><br>
-  PaperCubes is still in BETA. Errors may occur. <br> When you found one, please open an issue for me. <br> Currently works only for versions smaller than v1.13.0. <br> Versions that are very old won't work eighter. <br> Loading times can be very long <br><br>
   <a href="http://forthebadge.com"><img alt="forthebadge" src="http://forthebadge.com/images/badges/built-with-love.svg"></a>
   <a href="http://forthebadge.com"><img alt="forthebadge" src="http://forthebadge.com/images/badges/uses-js.svg"></a>
   <a href="http://forthebadge.com"><img alt="forthebadge" src="http://forthebadge.com/images/badges/made-with-c-plus-plus.svg"></a>
@@ -26,6 +24,12 @@ A desktop app which converts your minecraft <a href="https://matthewmiller.dev/b
 8. 🌟 Let the Program do its magic
 9. 🖨 Print out the blueprints
 10. 🏘 Make amazing minecraft builds in real!
+
+## ⚠️ Important
+
+- PaperCubes is still in BETA. Errors may occur. When you found one, please open an issue for me.
+- Currently works only for versions smaller than v1.13.0. Versions that are very old won't work eighter. 
+- Loading times can be very long depending on the size of the schematic
 
 ## 📝 Source Code
 In order to use this source code you need to have Node.js, Git and Bower installed globally. After that you have to follow the steps below. 
