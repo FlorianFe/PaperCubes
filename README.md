@@ -27,8 +27,8 @@ A desktop app which converts your minecraft <a href="https://matthewmiller.dev/b
 
 ## ⚠️ Important
 
-- PaperCubes is still in BETA. Errors may occur. When you found one, please open an issue for me.
-- Currently works only for versions smaller than v1.13.0. Versions that are very old won't work eighter. 
+- PaperCubes is still in BETA. Errors may occur. When you found one, please open an issue for me
+- Currently works only for schematic files which are taken from minecraft versions smaller than v1.13.0. Versions that are very old won't work eighter. The version of the texturepack should match the minecraft version of the schematic file for best results
 - Loading times can be very long depending on the size of the schematic
 
 ## 📝 Source Code
