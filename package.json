@@ -29,7 +29,7 @@
     "unzip": "^0.1.11"
   },
   "devDependencies": {
-    "electron": "11.5.0",
+    "electron": "13.6.6",
     "electron-builder": "^20.9.0",
     "ncp": "^2.0.0",
     "node-gyp": "^3.6.2"
